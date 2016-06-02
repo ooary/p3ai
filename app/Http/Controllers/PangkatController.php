@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Jurusan as Jurusan;
-
-class DosenController extends Controller
+use App\Pangkat as Pangkat;
+class PangkatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class DosenController extends Controller
     public function index()
     {
         //
-        $jurusan = Jurusan::all();
-        return View('dosen.index',compact('jurusan'));
+        $pangkat = Pangkat::all();
+        return View('pangkat.index',compact('pangkat'));
     }
 
     /**
@@ -29,6 +28,7 @@ class DosenController extends Controller
     public function create()
     {
         //
+        return View('pangkat.create');
     }
 
     /**
@@ -40,6 +40,14 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,['pangkat'=>'required']);
+
+        $pangkat = Pangkat::create($request->all());
+
+        \Flash::message($request->get('pangkat'). " Added");
+
+        return Redirect('dashboard/pangkat');
+
     }
 
     /**
@@ -62,6 +70,9 @@ class DosenController extends Controller
     public function edit($id)
     {
         //
+        $pangkat = Pangkat::findOrfail($id);
+
+        return View('pangkat.edit',compact('pangkat'));
     }
 
     /**
@@ -74,6 +85,14 @@ class DosenController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,['pangkat'=>'required']);
+        $pangkat = Pangkat::findOrfail($id);
+
+        $pangkat->update($request->all());
+         \Flash::message('Update Success');
+         return Redirect('dashboard/pangkat');
+
+
     }
 
     /**
@@ -85,5 +104,11 @@ class DosenController extends Controller
     public function destroy($id)
     {
         //
+        $pangkat = Pangkat::findOrfail($id);
+
+        $pangkat->delete();
+        \Flash::message('Delete Success');
+
+        return Redirect('dashboard/pangkat');
     }
 }

@@ -7,11 +7,9 @@
 	<div class="row">
 		<div class="col-md-6">
 				<div class="list-group">
-						<a href="" class="list-group-item">asd</a>
-						<a href="" class="list-group-item"></a>
-						<a href="" class="list-group-item"></a>
-						<a href="" class="list-group-item"></a>
-						<a href="" class="list-group-item"></a>
+						@foreach($jurusan as $data)
+				<a href="" class="list-group-item"><span class="fa fa-folder"></span> {{$data->jurusan}}</a>
+						@endforeach
 					</div>	
 
 		</div>

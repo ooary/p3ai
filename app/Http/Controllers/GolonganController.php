@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Jurusan as Jurusan;
+use App\Golongan as Golongan;
 
-class DosenController extends Controller
+class GolonganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class DosenController extends Controller
     public function index()
     {
         //
-        $jurusan = Jurusan::all();
-        return View('dosen.index',compact('jurusan'));
+        $golongan = Golongan::get();
+        return view('golongan.index',compact('golongan'));
     }
 
     /**
@@ -29,6 +29,7 @@ class DosenController extends Controller
     public function create()
     {
         //
+        return View('golongan.create');
     }
 
     /**
@@ -40,6 +41,12 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,['golongan'=>'required']);
+
+        $golongan = Golongan::create($request->all());
+        \Flash::message($request->get('golongan') . " Added");
+
+        return Redirect('dashboard/golongan');
     }
 
     /**
@@ -51,6 +58,7 @@ class DosenController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -62,6 +70,8 @@ class DosenController extends Controller
     public function edit($id)
     {
         //
+        $golongan = Golongan::findOrfail($id);
+        return View('golongan.edit',compact('golongan'));
     }
 
     /**
@@ -74,6 +84,13 @@ class DosenController extends Controller
     public function update(Request $request, $id)
     {
         //
+      $this->validate($request,['golongan'=>'required']);
+
+        $golongan = Golongan::findOrfail($id);
+        $golongan -> update($request->all());
+        \Flash::message('Update Success');
+
+        return Redirect('dashboard/golongan');
     }
 
     /**
@@ -85,5 +102,9 @@ class DosenController extends Controller
     public function destroy($id)
     {
         //
+        $golongan = Golongan::findOrfail($id);
+        $golongan -> delete();
+        \Flash::message('Delete Success');
+        return Redirect('dashboard/golongan');
     }
 }

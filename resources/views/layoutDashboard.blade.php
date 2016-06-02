@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{asset('css/jquery-ui.min.css')}}">
 
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
+    <link href="{{asset('css/selectize.css')}}" rel="stylesheet">
+
 
     <script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
     
@@ -36,7 +38,7 @@ psed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-co
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">P3AI DASHBOARD</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
          <ul class="nav navbar-nav navbar-right">
@@ -69,8 +71,8 @@ psed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-co
             <li><a href="#">Data Serdos</a></li>
             <li><a href="#">Data Kegiatan</a></li>
             <li><a href="{{url('dashboard/jurusan')}}">Jurusan</a></li>
-            <li><a href="#">Pangkat</a></li>
-            <li><a href="#">Golongan</a></li>
+            <li><a href="{{url('dashboard/pangkat')}}">Pangkat</a></li>
+            <li><a href="{{url('dashboard/golongan')}}">Golongan</a></li>
 
 
 
@@ -105,7 +107,9 @@ psed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-co
     <script src="{{asset('js/allinone/jquery-ui.min.js')}}"></script>
     <script src="{{asset('js/table/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/table/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/selectize.js')}}"></script>
+    
     <script src="{{asset('js/app.js')}}"></script>
-
+    
   </body>
 </html>
