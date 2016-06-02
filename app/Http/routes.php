@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/dashboard',function(){
 	return View('dashboard.overview');
 });
+Route::resource('/dashboard/news','NewsController');
+Route::resource('/dashboard/dosen','DosenController');
+Route::resource('/dashboard/jurusan','JurusanController');

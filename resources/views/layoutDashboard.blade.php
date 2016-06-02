@@ -19,6 +19,8 @@
 
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
 
+    <script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
+    
 
   </head>
 
@@ -27,7 +29,8 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle colla
+psed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -36,15 +39,22 @@
           <a class="navbar-brand" href="#">Project name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
+         <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                   
+                
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                   
+                </ul>
+        
         </div>
       </div>
     </nav>
@@ -53,11 +63,15 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">News Update</a></li>
-            <li><a href="#">Data Dosen</a></li>
+            <li class="active"><a href="{{url('dashboard')}}">Overview <span class="sr-only">(current)</span></a></li>
+            <li ><a href="{{url('dashboard/news')}}">News Update</a></li>
+            <li><a href="{{url('dashboard/dosen')}}">Data Dosen</a></li>
             <li><a href="#">Data Serdos</a></li>
             <li><a href="#">Data Kegiatan</a></li>
+            <li><a href="{{url('dashboard/jurusan')}}">Jurusan</a></li>
+            <li><a href="#">Pangkat</a></li>
+            <li><a href="#">Golongan</a></li>
+
 
 
           </ul>
@@ -83,6 +97,7 @@
     <script src="{{asset('js/allinone/jquery-ui.min.js')}}"></script>
     <script src="{{asset('js/table/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/table/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 
   </body>
 </html>
