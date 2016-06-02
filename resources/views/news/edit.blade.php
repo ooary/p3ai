@@ -6,8 +6,8 @@
 
 <div class="row">
 		<div class="col-md-12">
-			{{Form::model($jurusan,['route'=>['dashboard.jurusan.update',$jurusan],'method'=>'patch' ])}}
-						@include('jurusan._form',['model'=>$jurusan])
+			{{Form::model($news,['route'=>['dashboard.news.update',$news],'method'=>'patch','files'=>true ])}}
+						@include('news._form',['model'=>$news])
 				{{Form::close()}}
 			</div>
 		</div>
