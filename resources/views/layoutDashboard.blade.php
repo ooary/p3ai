@@ -79,6 +79,14 @@ psed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-co
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header"> @yield('page-header')</h1>
+          @if (session()->has('flash_notification.message'))
+            <div class="container">
+            <div class="alert alert-{{ session()->get('flash_notification.level')}}">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ session()->get('flash_notification.message') }}
+            </div>
+            </div>
+            @endif
       
             @yield('content')
        

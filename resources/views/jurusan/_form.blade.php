@@ -1,11 +1,11 @@
-<div class="row">
+	<div class="row">
 	<div class="col-md-6">
 		<div class="form-group {{ $errors ->has('name') ? 'has-error' : ''}}">
 			
 			{{Form::label('Nama Prody','Nama Jurusan')}}
 
 			
-			{{Form::text('nama',null,['class'=>'form-control'])}}
+			{{Form::text('jurusan',null,['class'=>'form-control'])}}
 
 			  @if ($errors->has('nama'))
 		        <span class="help-block">
@@ -16,15 +16,15 @@
 			
 			
 		</div>
-</div>
-</div>
+	</div>
+		</div>
 
 
 <div class="row">
 	<div class="col-md-6">
 		<div class="form-group ">
 		
-			{{Form::submit('Save',['class'=>'btn btn-danger'])}}
+			{{Form::submit(isset($model)? 'Update' :'Add',['class'=>'btn btn-danger'])}}
 			
 			
 		</div>
