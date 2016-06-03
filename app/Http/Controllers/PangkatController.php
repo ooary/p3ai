@@ -40,11 +40,12 @@ class PangkatController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,['pangkat'=>'required']);
+        $this->validate($request,['pangkat'=>'required',
+                                  'golongan_list'=>'required']);
+        $data = $request->only('pangkat');
+        $pangkat = Pangkat::create($data);
 
-        $pangkat = Pangkat::create($request->all());
-
-        \Flash::message($request->get('pangkat'). " Added");
+        $pangkat->showGolongan()->sync($request->get('golongan_list'));
 
         return Redirect('dashboard/pangkat');
 
@@ -85,10 +86,20 @@ class PangkatController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,['pangkat'=>'required']);
+         $this->validate($request,['pangkat'=>'required',
+                                  'golongan_list'=>'required']);
         $pangkat = Pangkat::findOrfail($id);
+        $data = $request->only('pangkat');
+        $pangkat->update($data);
 
-        $pangkat->update($request->all());
+        if(count($request->get('golongan_list'))>0)
+            :
+             $pangkat->showGolongan()->sync($request->get('golongan_list'));
+        else
+            :
+            $pangkat->showGolongan()->detach();
+        endif;
+
          \Flash::message('Update Success');
          return Redirect('dashboard/pangkat');
 
@@ -104,7 +115,7 @@ class PangkatController extends Controller
     public function destroy($id)
     {
         //
-        $pangkat = Pangkat::findOrfail($id);
+        $pangkat = Pangkat::find($id);
 
         $pangkat->delete();
         \Flash::message('Delete Success');

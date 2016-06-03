@@ -18,10 +18,12 @@ class CreateTableGolongan extends Migration
             $table -> increments('id');
             $table -> string('golongan',10);
         });
-        Schema::create('pangkat_golongan',function(Blueprint $table){
+        Schema::create('golongan_pangkat',function(Blueprint $table){
             $table -> increments('id');
-            $table -> integer('golongan_id')->references('id')->on('pangkat');
-            $table -> integer('pangkat_id')->references('id')->on('golongan');
+            $table -> integer('golongan_id')->unsigned();
+            $table -> integer('pangkat_id')->unsigned();
+            $table ->foreign('golongan_id')->references('id')->on('golongan');
+            $table ->foreign('pangkat_id')->references('id')->on('pangkat');
         });
     }
 
@@ -34,5 +36,6 @@ class CreateTableGolongan extends Migration
     {
         //
         Schema::drop('golongan');
+        Schema::drop('golongan_pangkat');
     }
 }

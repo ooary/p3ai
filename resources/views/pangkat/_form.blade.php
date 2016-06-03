@@ -26,7 +26,7 @@
 					
                     {!! Form::select('golongan_list[]',[''=>'']+App\Golongan::lists('golongan','id')->all(), null, ['class'=>'js-selectize', 'multiple']) !!}
 	
-                                @if ($errors->has('golongan_list'))
+                                @if($errors->has('golongan_list'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('golongan_list') }}</strong>
                                     </span>
