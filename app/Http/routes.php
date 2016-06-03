@@ -19,6 +19,7 @@ Route::get('/dashboard',function(){
 });
 Route::resource('/dashboard/news','NewsController');
 Route::resource('/dashboard/dosen','DosenController');
+Route::get('/dashboard/dosen/{nip}/detail','DosenController@detailDosen');
 Route::resource('/dashboard/jurusan','JurusanController');
 Route::resource('/dashboard/pangkat','PangkatController');	
 Route::resource('/dashboard/golongan','GolonganController');

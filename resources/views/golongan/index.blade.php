@@ -6,6 +6,8 @@
 
           <a href="{{url('/dashboard/golongan/create')}}" class="btn btn-primary">Add Golongan</a>
 			<hr>
+      <div class="table-responsive">
+        
    			<table class="table table-stripped table-bordered" id="dataTables">
           					<thead>
           						<tr>
@@ -35,4 +37,6 @@
                                         @endforeach
           					</tbody>
           			</table>
+      </div>
+                
 @stop

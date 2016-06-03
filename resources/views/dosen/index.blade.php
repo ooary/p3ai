@@ -5,12 +5,12 @@
 @section('content')
 	
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 				<div class="list-group">
-						@foreach($jurusan as $data)
-				<a href="" class="list-group-item"><span class="fa fa-folder"></span> {{$data->jurusan}}</a>
-						@endforeach
-					</div>	
+				@foreach($jurusan as $data)
+					<a href="{{url('/dashboard/dosen')}}/{{$data->id}}" class="list-group-item"><span class="fa fa-folder"></span> {{$data->jurusan}}</a>
+				@endforeach
+				</div>	
 
 		</div>
 		

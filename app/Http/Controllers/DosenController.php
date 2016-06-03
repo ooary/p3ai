@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Jurusan as Jurusan;
+use App\Dosen as Dosen;
 
 class DosenController extends Controller
 {
@@ -26,9 +27,11 @@ class DosenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+  
     public function create()
     {
         //
+        return View('dosen.create');
     }
 
     /**
@@ -40,7 +43,28 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,['nip'=>'numeric|required|unique:dosen',
+                                  'nama'=>'required',
+                                  'agama'=>'required',
+                                  'tgl_lahir'=>'required|date',
+                                  'no_hp'=>'required|numeric|digits_between:10,12',
+                                  'jurusan_id'=>'required',
+                                  'golongan_id'=>'required',
+                                  'pendidikan'=>'required',
+
+                                    ]);
+        $id= $request->get('jurusan_id');
+        $data = $request->only('nip','nama','agama','no_hp','jurusan_id','golongan_id','pendidikan','ket');
+        $data['tgl_lahir'] = date('Y-m-d',strtotime($request->get('tgl_lahir')));
+        $save = Dosen::create($data);
+
+        \Flash::message($request->get('nama'). " Added");
+
+        return Redirect('dashboard/dosen/'.$id);
+
+        
     }
+
 
     /**
      * Display the specified resource.
@@ -51,6 +75,9 @@ class DosenController extends Controller
     public function show($id)
     {
         //
+          $dataDosen = array('dosen'=>Dosen::where('jurusan_id',$id)->get(),
+                             'jurusan'=>Jurusan::findOrfail($id) );
+        return View('dosen.view',compact('dataDosen'));
     }
 
     /**
@@ -62,6 +89,9 @@ class DosenController extends Controller
     public function edit($id)
     {
         //
+        $dataDosen = Dosen::findOrfail($id);
+
+        return View('dosen.edit',compact('dataDosen'));
     }
 
     /**
@@ -74,6 +104,25 @@ class DosenController extends Controller
     public function update(Request $request, $id)
     {
         //
+         $this->validate($request,['nip'=>'numeric|required|unique:dosen',
+                                  'nama'=>'required',
+                                  'agama'=>'required',
+                                  'tgl_lahir'=>'required|date',
+                                  'no_hp'=>'required|numeric|digits_between:10,12',
+                                  'jurusan_id'=>'required',
+                                  'golongan_id'=>'required',
+                                  'pendidikan'=>'required',]);
+         $dosen = Dosen::findOrfail($id);
+         $id= $request->get('jurusan_id');
+         $data = $request->only('nip','nama','agama','no_hp','jurusan_id','golongan_id','pendidikan','ket');
+         $data['tgl_lahir'] = date('Y-m-d',strtotime($request->get('tgl_lahir')));
+         $dosen -> update($data);
+
+         \Flash::message($request->get('nama'). " Update");
+
+         return Redirect('dashboard/dosen/'.$id);
+
+
     }
 
     /**
@@ -85,5 +134,18 @@ class DosenController extends Controller
     public function destroy($id)
     {
         //
+        $datDosen = Dosen::find($id);
+
+        $datDosen->delete();
+
+        \Flash::message('delete Success');
+
+        return Redirect()->back();
     }
+     public function detailDosen($nip){
+
+        $dataDosen= Dosen::where('nip',$nip)->first();
+       return View('dosen.detail',compact('dataDosen'));
+    }
+   
 }
