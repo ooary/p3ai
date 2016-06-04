@@ -15,6 +15,6 @@ $(document).ready(function(){
 		 
 		 sortField:'text'
 	});
-
+	
 	console.log("ready");
 });

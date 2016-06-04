@@ -52,13 +52,12 @@ class NewsController extends Controller
             :
            $data['img'] = $this->saveImg($request->file('img'));
         endif;
+        $data['slug_judul'] = str_slug($request->get('judul'),"-");
+        $data['tgl_posting'] = date("Y-m-d", strtotime($request->get('tgl_posting')));
+        $data['posted_by'] = 1;
         $news = News::create($data);
 
-        $news -> slug_judul     = str_slug($request->get('judul'),"-");
-        $news -> tgl_posting    = date("Y-m-d", strtotime($request->get('tgl_posting')));
-        $news -> posted_by      =    1;
-
-        $news ->save();
+     
         \Flash::message($request->get('judul') . " Added");
         return Redirect('dashboard/news');
 

@@ -19,6 +19,7 @@ class CreateNewsTable extends Migration
             $table->string('judul',25);
             $table->string('slug_judul',50);
             $table->string('img');
+            $table->text('isi');
             $table->date('tgl_posting');
             $table->integer('posted_by');
         });

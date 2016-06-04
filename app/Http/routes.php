@@ -24,3 +24,5 @@ Route::resource('/dashboard/serdos','SerdosController');
 Route::resource('/dashboard/jurusan','JurusanController');
 Route::resource('/dashboard/pangkat','PangkatController');	
 Route::resource('/dashboard/golongan','GolonganController');
+Route::resource('/dashboard/download','DownloadController');
+Route::get('/dashboard/download/{nama}/get','DownloadController@downloadFile');
