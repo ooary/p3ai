@@ -17,7 +17,10 @@ class Dosen extends Model
     					  'agama',
     					  'no_hp',
     					  'pendidikan',
-    					  'ket'];
+    					  'ket',
+                          'thn_serdos',
+                          'gelombang',
+                          'status'];
     protected $primaryKey='id';
     public $timestamps =false;
 
@@ -26,5 +29,15 @@ class Dosen extends Model
     }
     public function showGol(){
         return $this->belongsTo('App\Golongan','golongan_id');
+    }
+    //scope jumlah status dosen 
+    public function scopeLulus($query){
+        return $query -> where('status','=','1');
+    }
+      public function scopeBelum($query){
+        return $query -> where('status','=','3')->orWhere('status','=','');
+    }
+    public function scopeTidak($query){
+        return $query -> where('status','=','2');
     }
 }

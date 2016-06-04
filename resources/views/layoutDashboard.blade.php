@@ -25,6 +25,8 @@
 
 
     <script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('js/Chart.min.js')}}"></script>
+    
     <style rel="stylesheet">
     .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
       color: black;
@@ -75,9 +77,10 @@
             <li ><a href="{{url('dashboard')}}">Overview <span class="sr-only">(current)</span></a></li>
             <li ><a href="{{url('dashboard/news')}}">News Update</a></li>
             <li ><a href="#">Gallery</a></li>
+            <li ><a href="#">Data Download</a></li>
 
             <li><a href="{{url('dashboard/dosen')}}">Data Dosen</a></li>
-            <li><a href="#">Data Serdos</a></li>
+            <li><a href="{{url('dashboard/serdos')}}">Data Serdos</a></li>
             <li><a href="#">Data Administrasi Jurusan</a></li>
             <li><a href="#">Data Kegiatan</a></li>
             <li><a href="{{url('dashboard/jurusan')}}">Jurusan</a></li>
@@ -119,6 +122,7 @@
     <script src="{{asset('js/table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('js/table/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('js/table/responsive.bootstrap.min.js')}}"></script>
+
 
 
     <script src="{{asset('js/selectize.js')}}"></script>

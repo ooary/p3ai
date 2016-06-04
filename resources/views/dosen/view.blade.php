@@ -21,9 +21,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                                        <?php
-                                             $no = 1;
-                                        ?>
+                          @php($no=1)
                          @foreach($dataDosen['dosen'] as $data)     	        
                       <tr>
                         <td>{{$no++}}</td>

@@ -17,9 +17,7 @@
           						</tr>
           					</thead>
           					<tbody>
-                           <?php
-                                $no = 1;
-                         ?>
+                       @php($no=1)
                          @foreach($pangkat as $data)
           						<tr>
           							<td>{{$no++}}</td>

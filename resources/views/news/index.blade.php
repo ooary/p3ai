@@ -16,10 +16,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                                        <?php 
-                                             $no =1;
-                                        ?>
-                                        @foreach($news as $data)
+                        @php($no=1)
+                        @foreach($news as $data)
                       <tr>
                         <td>{{$no++}}</td>
                         <td>{{$data->judul}}</td>

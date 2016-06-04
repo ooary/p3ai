@@ -17,10 +17,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                                        <?php
-                                             $no = 1;
-                                        ?>
-                                        @foreach($jurusan as $data)
+                       @php($no=1)
+                       @foreach($jurusan as $data)
                       <tr>
                         <td>{{$no++}}</td>
                         <td>{{$data->jurusan}}</td>

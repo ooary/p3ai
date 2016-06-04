@@ -19,10 +19,10 @@
           						</tr>
           					</thead>
           					<tbody>
-                                        <?php
-                                             $no = 1;
-                                        ?>
-                                        @foreach($golongan as $data)
+                                    
+                      @php($no=1)
+                                      
+                       @foreach($golongan as $data)
           						<tr>
           							<td>{{$no++}}</td>
           							<td>{{$data->golongan}}</td>
