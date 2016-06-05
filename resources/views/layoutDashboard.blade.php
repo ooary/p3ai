@@ -13,18 +13,26 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+     <!-- fontawesome core CSS -->
     <link rel="stylesheet" href="{{asset('css/fa.min.css')}}">
-
+     <!-- Datatables core CSS -->
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.bootstrap.min.css')}}">
-
+     <!-- DatePicker core CSS -->
     <link rel="stylesheet" href="{{asset('css/jquery-ui.min.css')}}">
-
+     <!-- Custom Dashboard Bootstrap core CSS -->
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
+     <!-- SelectizeJs core CSS -->
     <link href="{{asset('css/selectize.css')}}" rel="stylesheet">
+     <!-- dropzone core CSS -->
+    <link href="{{asset('css/dropzone.min.css')}}" rel="stylesheet">
+     <!-- Gallery core CSS -->
+    <link href="{{asset('css/gallery.css')}}" rel="stylesheet">
 
 
+     <!-- CKEDITOR core JS -->
     <script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
+     <!-- chart core JS -->
     <script src="{{asset('js/Chart.min.js')}}"></script>
     
     <style rel="stylesheet">
@@ -76,7 +84,7 @@
           <ul class="nav nav-sidebar">
             <li ><a href="{{url('dashboard')}}">Overview <span class="sr-only">(current)</span></a></li>
             <li ><a href="{{url('dashboard/news')}}">News Update</a></li>
-            <li ><a href="#">Gallery</a></li>
+            <li ><a href="{{url('dashboard/gallery')}}">Gallery</a></li>
             <li ><a href="{{url('dashboard/download')}}">Data Download</a></li>
 
             <li><a href="{{url('dashboard/dosen')}}">Data Dosen</a></li>
@@ -113,20 +121,21 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
- 
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="{{asset('js/holder.min.js')}}"></script>
+    <!-- Date Picker core JS -->
     <script src="{{asset('js/allinone/jquery-ui.min.js')}}"></script>
+     <!-- DataTable core JS -->
     <script src="{{asset('js/table/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('js/table/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('js/table/responsive.bootstrap.min.js')}}"></script>
-
-
-
+     <!-- Selectize core JS -->
     <script src="{{asset('js/selectize.js')}}"></script>
-    
+     <!-- Dropzone core JS -->
+    <script src="{{asset('js/dropzone/dropzone.min.js')}}"></script>
+    <!-- All App core JS -->
     <script src="{{asset('js/app.js')}}"></script>
     
   </body>
