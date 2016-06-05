@@ -81,7 +81,7 @@
 
             <li><a href="{{url('dashboard/dosen')}}">Data Dosen</a></li>
             <li><a href="{{url('dashboard/serdos')}}">Data Serdos</a></li>
-            <li><a href="#">Data Administrasi Jurusan</a></li>
+            <li><a href="{{url('dashboard/adm')}}">Data Administrasi Jurusan</a></li>
             <li><a href="#">Data Kegiatan</a></li>
             <li><a href="{{url('dashboard/jurusan')}}">Jurusan</a></li>
             <li><a href="{{url('dashboard/pangkat')}}">Pangkat</a></li>

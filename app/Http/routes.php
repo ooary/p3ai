@@ -26,3 +26,5 @@ Route::resource('/dashboard/pangkat','PangkatController');
 Route::resource('/dashboard/golongan','GolonganController');
 Route::resource('/dashboard/download','DownloadController');
 Route::get('/dashboard/download/{nama}/get','DownloadController@downloadFile');
+Route::resource('/dashboard/adm','AdministrasiController');
+Route::get('/dashboard/adm/{nip}/detail','AdministrasiController@detailAdm');
