@@ -87,6 +87,7 @@
             <li ><a href="{{url('dashboard')}}">Overview <span class="sr-only">(current)</span></a></li>
             <li ><a href="{{url('dashboard/news')}}">News Update</a></li>
             <li ><a href="{{url('dashboard/gallery')}}">Gallery</a></li>
+            <li ><a href="{{url('dashboard/workshop')}}">Workshop</a></li>
             <li ><a href="{{url('dashboard/download')}}">Data Download</a></li>
 
             <li><a href="{{url('dashboard/dosen')}}">Data Dosen</a></li>

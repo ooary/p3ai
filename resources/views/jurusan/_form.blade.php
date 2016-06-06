@@ -1,15 +1,15 @@
 	<div class="row">
 	<div class="col-md-6">
-		<div class="form-group {{ $errors ->has('name') ? 'has-error' : ''}}">
+		<div class="form-group {{ $errors ->has('jurusan') ? 'has-error' : ''}}">
 			
 			{{Form::label('Nama Prody','Nama Jurusan')}}
 
 			
 			{{Form::text('jurusan',null,['class'=>'form-control'])}}
 
-			  @if ($errors->has('nama'))
+			  @if ($errors->has('jurusan'))
 		        <span class="help-block">
-		                 <strong>{{ $errors->first('nama') }}</strong>
+		                 <strong>{{ $errors->first('jurusan') }}</strong>
 		         </span>
 		       @endif
 			

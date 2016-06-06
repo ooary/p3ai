@@ -19,7 +19,7 @@
         </div>
       </div>
       <br>
-      <form action="{{url('dashboard/gallery/upload')}}" class="dropzone" id="myDropzone">
+      <form action="{{url('dashboard/gallery/upload')}}" class="dropzone" id="myDropzoneImage">
             {{csrf_field()}}
             <input type="hidden" name="id" value="{{$gallery->id}}">
       </form><br>

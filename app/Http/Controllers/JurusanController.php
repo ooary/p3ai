@@ -41,7 +41,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,['jurusan'=>'required']);
+        $this->validate($request,['jurusan'=>'required|unique:jurusan,jurusan']);
         $save = Jurusan::create($request->all());
         \Flash::message($request->get('jurusan') . " Added");
         return Redirect('dashboard/jurusan');
