@@ -28,6 +28,8 @@
     <link href="{{asset('css/dropzone.min.css')}}" rel="stylesheet">
      <!-- Gallery core CSS -->
     <link href="{{asset('css/gallery.css')}}" rel="stylesheet">
+      <!-- Lightbox core CSS -->
+    <link href="{{asset('css/lightbox.min.css')}}" rel="stylesheet">
 
 
      <!-- CKEDITOR core JS -->
@@ -135,6 +137,9 @@
     <script src="{{asset('js/selectize.js')}}"></script>
      <!-- Dropzone core JS -->
     <script src="{{asset('js/dropzone/dropzone.min.js')}}"></script>
+    <!-- Lightbox core JS -->
+    <script src="{{asset('js/lightbox/lightbox.min.js')}}"></script>
+
     <!-- All App core JS -->
     <script src="{{asset('js/app.js')}}"></script>
     

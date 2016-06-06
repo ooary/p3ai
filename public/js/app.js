@@ -45,7 +45,7 @@ $(document).ready(function(){
     		    var imgPath = "http://localhost/p3ai/public/img/"+ response.image;
     		    var idImg = response.id;
 
- $(imageList).append('<li><a href="'+ imgPath +'"> </a><img src="'+ imgPath +'"><br><a href="http://localhost/p3ai/public/dashboard/gallery/'+ idImg +'/delete" class="fa fa-trash" onclick="return confirm("delete?")"></a></li>');
+ $(imageList).append('<li><a href="'+ imgPath +'" data-lightbox="mygallery"><img src="'+ imgPath +'" ><br><a href="http://localhost/p3ai/public/dashboard/gallery/'+ idImg +'/delete" class="fa fa-trash" onclick="return confirm("delete?")"></a></li>');
     	}
     }
 

@@ -8,7 +8,7 @@
           <div id="gallery-images">
             <ul>
               @foreach($gallery->hasImage as $data)
-              <li><a href="{{asset('img')}}/{{$data->image}}">
+              <li><a href="{{asset('img')}}/{{$data->image}}" data-lightbox="mygallery">
                       <img src="{{asset('img')}}/{{$data->image}}" alt="">
                   </a><br>
                   <a href="{{url('/dashboard/gallery')}}/{{$data->id}}/delete" class="fa fa-trash" onclick="return confirm('delete?')"></a>
