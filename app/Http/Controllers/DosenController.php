@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Jurusan as Jurusan;
 use App\Dosen as Dosen;
+use PDF;
 
 class DosenController extends Controller
 {
@@ -146,6 +147,15 @@ class DosenController extends Controller
 
         $dataDosen= Dosen::where('nip',$nip)->first();
        return View('dosen.detail',compact('dataDosen'));
+    }
+    public function reportDosen($id){
+
+
+        $dataDosen = Dosen::where('id',$id)->get();
+        $pdf = PDF::loadView('dosen.export',compact('dataDosen'));
+
+        return $pdf->setPaper('a4')->download('report.pdf');
+
     }
    
 }
