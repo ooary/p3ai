@@ -44,8 +44,8 @@ class NewsController extends Controller
         //
         $this->validate($request,['judul'=>'required|min:6',
                                   'img'=>'mimes:jpg,png,jpeg|max:2000',
-                                  'tgl_posting'=>'date|required',
-                                  'isi'=>'required|min:6']);
+                                  
+                                  'isi'=>'required|min:200']);
 
         $data = $request->only('judul','isi');
         if($request->hasFile('img'))
@@ -53,7 +53,7 @@ class NewsController extends Controller
            $data['img'] = $this->saveImg($request->file('img'));
         endif;
         $data['slug_judul'] = str_slug($request->get('judul'),"-");
-        $data['tgl_posting'] = date("Y-m-d", strtotime($request->get('tgl_posting')));
+        $data['tgl_posting'] = date("Y-m-d");
         $data['posted_by'] = 1;
         $news = News::create($data);
 
@@ -115,22 +115,19 @@ class NewsController extends Controller
         //
         $this->validate($request,['judul'=>'required|min:6',
                                   'img'=>'mimes:jpg,png,jpeg|max:2000',
-                                  'tgl_posting'=>'date|required',
-                                  'isi'=>'required|min:6']);
+                       
+                                  'isi'=>'required|min:200']);
         $news = News::findOrfail($id);
+        $data = $request->only('judul','isi');
         if($request->hasFile('img'))
             :
            $data['img'] = $this->saveImg($request->file('img'));
            if($news->img !=='') $this->deleteImg($news->img);
         endif;
-        $news -> judul = $request->get('judul');
-        $news -> isi = $request->get('isi');
-        $news -> img = $data['img'];
-        $news -> slug_judul     = str_slug($request->get('judul'),"-");
-        $news -> tgl_posting    = date("Y-m-d", strtotime($request->get('tgl_posting')));
-        $news -> posted_by      =    1;
+        $data['slug_judul'] = str_slug($request->get('judul'),"-");
+        $data['posted_by'] = 1;
         
-        $news->update();
+        $news->update($data);
 
         \Flash::message($request->get('judul'). " Updated");
         return Redirect('dashboard/news');

@@ -8,7 +8,7 @@
 
 
   <a href="{{url('/dashboard/dosen/create')}}" class="btn btn-primary">Add Data Dosen</a>
-	<a href="{{url('/dashboard/dosen/report')}}/{{$dataDosen['jurusan']->id}}" class="btn btn-primary">Report Dosen</a>
+	<a href="{{url('/dashboard/dosen/report')}}/{{$dataDosen['jurusan']->id}}" class="btn btn-success">Report Dosen</a>
 			<hr>
   <div class="table-responsive">
     

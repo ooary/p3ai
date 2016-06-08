@@ -150,6 +150,7 @@ class DosenController extends Controller
     }
     public function reportDosen($id){
 
+        //https://github.com/barryvdh/laravel-dompdf
 
         $dataDosen = Dosen::where('id',$id)->get();
         $pdf = PDF::loadView('dosen.export',compact('dataDosen'));

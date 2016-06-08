@@ -40,22 +40,6 @@
                              @endif
                         </div>  
                     </div>
-                        <div class="form-group{{ $errors->has('tgl_posting') ? ' has-error' : '' }}">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Tanggal</label>
-
-                             <div class="col-md-2">
-                                {{Form::text('tgl_posting',null,['class'=>'form-control datePicker'])}}
-
-                                @if ($errors->has('tgl_posting'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('tgl_posting') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>  
-                        </div>
-                     
 
                          <div class="form-group{{ $errors->has('isi') ? ' has-error' : '' }}">
                             <div class="row">

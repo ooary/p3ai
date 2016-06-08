@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomePageController@index');
+Route::get('/news/{slug}','HomePageController@news');
+
+//gallery Homepage
+Route::get('/gallery','HomePageController@gallery');
+Route::get('/gallery/{id}','HomePageController@showGallery');
+//profile
+Route::get('/profile','HomePageController@profile');
+Route::get('/contact','HomePageController@contact');
 Route::get('/dashboard',function(){
 	return View('dashboard.overview');
 });
