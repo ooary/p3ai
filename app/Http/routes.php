@@ -61,6 +61,8 @@ Route::get('/dashboard/workshop/{id}/sk','FileController@viewSk');
 Route::post('/dashboard/workshop/sk','FileController@uploadSk');
 Route::get('/dashboard/workshop/sk/{id}/delete','FileController@deleteSk');
 Route::get('/dashboard/workshop/sk/{id}/download','FileController@downloadSk');
+//surat masuk
+Route::resource('/dashboard/suratmasuk','SuratMasukController');
 
 //test report
 Route::get('/dashboard/dosen/report/{id}','DosenController@reportDosen');

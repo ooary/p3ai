@@ -19,6 +19,7 @@ class CreateTableDownload extends Migration
             $table -> string('nama_file',40);
             $table -> date('tgl_upload');
             $table -> integer('downloaded');
+            $table -> string('ket',100);
 
 
         });

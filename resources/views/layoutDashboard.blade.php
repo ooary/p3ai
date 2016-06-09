@@ -60,49 +60,43 @@
           <a class="navbar-brand" href="#">P3AI DASHBOARD</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-         <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                   
-                
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
+          <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                 <span class="caret"></span>
+                </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>
+                          Logout</a>
                         </li>
-                   
+                    </ul>
+                        </li>
                 </ul>
-        
+
         </div>
       </div>
     </nav>
-
-    <div class="container-fluid">
+  <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
+        
           <ul class="nav nav-sidebar">
             <li ><a href="{{url('dashboard')}}">Overview <span class="sr-only">(current)</span></a></li>
             <li ><a href="{{url('dashboard/news')}}">News Update</a></li>
             <li ><a href="{{url('dashboard/gallery')}}">Gallery</a></li>
             <li ><a href="{{url('dashboard/workshop')}}">Workshop</a></li>
             <li ><a href="{{url('dashboard/download')}}">Data Download</a></li>
-
-            <li><a href="{{url('dashboard/dosen')}}">Data Dosen</a></li>
+             <li><a href="{{url('dashboard/dosen')}}">Data Dosen</a></li>
             <li><a href="{{url('dashboard/serdos')}}">Data Serdos</a></li>
             <li><a href="{{url('dashboard/adm')}}">Data Administrasi Jurusan</a></li>
-            <li><a href="#">Data Kegiatan</a></li>
+            <li><a href="{{url('dashboard/suratmasuk')}}">Surat Masuk</a></li>
             <li><a href="{{url('dashboard/jurusan')}}">Jurusan</a></li>
             <li><a href="{{url('dashboard/pangkat')}}">Pangkat</a></li>
             <li><a href="{{url('dashboard/golongan')}}">Golongan</a></li>
-
-
-
-          </ul>
+             </ul>
          
-        </div>
+       
+      </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header"> @yield('page-header')</h1>
           @if (session()->has('flash_notification.message'))
