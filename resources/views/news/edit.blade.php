@@ -1,7 +1,7 @@
 @extends('layoutDashboard')
-@section('title','Jurusan Panel')
+@section('title','Edit News Panel')
 
-@section('page-header','Add Jurusan')
+@section('page-header','Edit '. $news->judul)
 @section('content')
 
 <div class="row">

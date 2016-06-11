@@ -44,15 +44,18 @@ class DownloadController extends Controller
     {
         //permission all folder
         //http://askubuntu.com/questions/303593/how-can-i-chmod-777-all-subfolders-of-var-www/303597
-        $this ->validate($request,['nama_file'=>'mimes:pdf,docx,doc|required']);
+        $this ->validate($request,['nama_file'=>'mimes:pdf,docx,doc|required',
+                                    'ket'=>'required']);
         $file = $request->file('nama_file');
+        $ket = $request -> get('ket');
         $fileName = $file->getClientOriginalName();
         
         $path = public_path() . DIRECTORY_SEPARATOR . 'file';
         $file -> move($path,$fileName);
 
         $tgl_upload = date('Y-m-d');    
-        $saveData = ['nama_file'=>$fileName,
+        $saveData = [ 'ket'=>$ket,
+                      'nama_file'=>$fileName,
                       'tgl_upload'=>$tgl_upload];
         Download::create($saveData);
         \Flash::message('Upload '. $request->file('nama_file')->getClientOriginalName() . ' Success');

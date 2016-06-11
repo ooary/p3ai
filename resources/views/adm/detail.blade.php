@@ -43,12 +43,21 @@
 		<tr>
 			<td>Pangkat</td>
 			<td>:</td>
-			<td></td>
+			<td>
+				@foreach($pangkat as $dataPangkat)
+				@if($dataDosen->golongan_id == $dataPangkat->golongan_id)
+					{{$dataPangkat -> showPangkat ->pangkat}}
+						
+				@endif
+				@endforeach
+			</td>
 		</tr>
 		<tr>
 			<td>Golongan</td>
 			<td>:</td>
-			<td></td>
+			<td>
+				{{$dataDosen->showGol->golongan}}
+			</td>
 		</tr>
 		
 		

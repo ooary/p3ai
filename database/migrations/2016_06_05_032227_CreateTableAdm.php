@@ -25,7 +25,7 @@ class CreateTableAdm extends Migration
              $table -> enum('pendidikan',['sma','d3','s1','s2','s3']);
              $table -> string('posisi',30);
              $table -> foreign('jurusan_id')->references('id')->on('jurusan');
-             $table -> foreign('golongan_id')->references('id')->on('golongan_pangkat');
+             $table -> foreign('golongan_id')->references('id')->on('golongan');
 
         });
 

@@ -1,7 +1,7 @@
 @extends('layoutDashboard')
-@section('title','Pangkat Panel')
+@section('title','Golongan Panel')
 
-@section('page-header','Edit Pangkat')
+@section('page-header','Edit Golongan')
 @section('content')
 
 <div class="row">

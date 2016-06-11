@@ -5,7 +5,11 @@
 @section('content')
 
   <h4>Statistik Data Serdos {{$dataDosen['jurusan']->jurusan}}</h4>
-    <canvas id="chartStatistik"></canvas>
+  <div width="50" height="50">
+    <canvas id="chartStatistik" ></canvas>
+
+
+  </div>
     <ul>
       <li >
       <h4>Jumlah Dosen Lulus  <span class="badge"> {{count($dataDosen['lulus'])}}</span></h4>
@@ -17,6 +21,11 @@
          <h4>Jumlah Belum Serdos <span class="badge">{{count($dataDosen['belum'])}}</span> </h4>
       </li>
     </ul>
+ <a href="{{url('/dashboard/serdos/report')}}/{{$dataDosen['jurusan']->id}}" class="btn btn-success">Report</a>
+  <a href="{{url('/dashboard/serdos/reportlulus')}}/{{$dataDosen['jurusan']->id}}" class="btn btn-primary">Report Lulus</a>
+  <a href="{{url('/dashboard/serdos/reporttdk')}}/{{$dataDosen['jurusan']->id}}" class="btn btn-danger">Report Tidak Lulus</a>
+  <a href="{{url('/dashboard/serdos/reportblm')}}/{{$dataDosen['jurusan']->id}}" class="btn btn-warning">Report Belum Serdos</a>
+
 
 	<hr>
   <div class="table-responsive">
@@ -55,7 +64,7 @@
 						            <td> 
 
                       
-                         <a href="{{url('/dashboard/serdos/')}}/{{$data->id}}/edit" class="fa fa-edit"></a>
+                         <a href="{{url('/dashboard/serdos/')}}/{{$data->id}}/edit" class="btn btn-sm btn-warning " ><span class="fa fa-edit"></span></a>
 
                          
                                </td>
@@ -68,6 +77,7 @@
   </div>
 
   <script>
+          //http://www.chartjs.org/docs/
           var dataLulus = {{json_encode($ketLulus)}}
           var dataBelum = {{json_encode($ketBelum)}}
           var dataTidak = {{json_encode($ketTidak)}}
@@ -76,32 +86,50 @@
                           labels: ['Lulus','Tidak Lulus','Belum Serdos'],
                           datasets: [
                           {
-                           labels:'Lulus', 
-                          fillColor: "green",
-                          strokeColor: "rgba(151,187,205,0.8)",
-                          pointColor: "rgba(220,220,220,1)",
-                          pointStrokeColor: "#fff",
-                          pointHighlightFill: "#fff",
-                          pointHighlightStroke: "rgba(220,220,220,1)",
-                          highlightFill: "rgba(151,187,205,0.75)",
-                          highlightStroke: "rgba(151,187,205,1)",
+                            label: "Data Sertifikasi Dosen",
+                              backgroundColor: [
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                             borderColor: [
+                              
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255,99,132,1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                              'rgba(153, 102, 255, 1)',
+                              'rgba(255, 159, 64, 1)'
+                          ],
+                         borderWidth: 1,
                           data: [dataLulus.length,dataTidak.length,dataBelum.length] ,
+                           scales: {
+                                                          yAxes: [{
+                                                              ticks: {
+                                                                  beginAtZero:true,
+                                                              }
+                                                                  }]
+                                                      }
                           }
-
 
                           ]
                           };
-          window.onload = function(){
+              window.onload = function(){
                var ctx = document.getElementById("chartStatistik").getContext("2d");
               var myChartLine = new Chart(ctx, {
                                               type: 'bar',
                                               data: barData,
                                               responsive:true,
+                                              maintainAspectRatio: false,
                                               scaleOverride:true,
                                               scaleSteps:9,
                                               scaleStartValue:0,
                                               scaleStepWidth:100
-                                                       
+                                             
+                                                                                                     
                                                  
                                           });
               

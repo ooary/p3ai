@@ -1,3 +1,21 @@
+		<div class="row">
+	<div class="col-md-6">
+		<div class="form-group {{ $errors ->has('ket') ? 'has-error' : ''}}">
+			
+			{{Form::label('keterangan','keterangan')}}
+            {{Form::text('ket',null,['class'=>'form-control'])}}
+			  @if ($errors->has('ket'))
+		        <span class="help-block">
+		                 <strong>{{ $errors->first('ket') }}</strong>
+		         </span>
+		       @endif
+			
+			
+			
+		</div>
+	</div>
+		</div>
+
 	<div class="row">
 	<div class="col-md-6">
 		<div class="form-group {{ $errors ->has('nama_file') ? 'has-error' : ''}}">

@@ -23,4 +23,7 @@ class Adm extends Model
     public function showJurusan(){
       return $this->belongsTo('App\Jurusan','jurusan_id');
     }
+    public function showGol(){
+      return $this->belongsTo('App\Golongan','golongan_id');
+    }
 }

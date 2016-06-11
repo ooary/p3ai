@@ -25,8 +25,8 @@
                              {{Form::model($data,['route'=>['dashboard.workshop.destroy',$data],'method'=>'delete','class'=>'form-inline','onsubmit'=>'return confirm("are you sure?")'])}}
                                <a href="{{url('dashboard/workshop')}}/{{$data->id}}/sk" class="btn btn-info btn-sm">Upload Sk</a>
                                 <a href="{{url('dashboard/workshop')}}/{{$data->id}}/materi" class="btn btn-success btn-sm">Upload Materi</a>
-                               <a href="{{url('/dashboard/workshop/')}}/{{$data->id}}/edit" class="btn btn-sm btn-info">Edit</a>
-                                <a href="{{url('/dashboard/workshop/')}}/{{$data->id}}" class="btn btn-sm btn-warning">Show</a>
+                               <a href="{{url('/dashboard/workshop/')}}/{{$data->id}}/edit" class="btn btn-sm btn-info"><span class="fa fa-edit"></span></a>
+                                <a href="{{url('/dashboard/workshop/')}}/{{$data->id}}" class="btn btn-sm btn-warning"><span class="fa fa-eye"></span></a>
 
                                              {{Form::submit('Delete',['class'=>'btn btn-sm btn-danger'])}}
                                              {{Form::close()}}

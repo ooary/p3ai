@@ -1,13 +1,13 @@
 @extends('layoutDashboard')
-@section('title','Surat Masuk Panel')
+@section('title','Surat keluar Panel')
 
-@section('page-header','Surat Masuk Control')
+@section('page-header','Surat keluar Control')
 @section('content')
 
 	<h3></h3>
 
 
-  <a href="{{url('/dashboard/suratmasuk/create')}}" class="btn btn-primary">Tambah Surat</a>
+  <a href="{{url('/dashboard/suratkeluar/create')}}" class="btn btn-primary">Tambah Surat</a>
   <hr>
   <div class="table-responsive">
     
@@ -22,16 +22,16 @@
                     </thead>
                     <tbody>
                           @php($no=1)
-                          @foreach($suratmasuk as $data)    	        
+                          @foreach($suratkeluar as $data)    	        
                       <tr>
                         <td>{{$no++}}</td>
                         <td>{{$data->no_surat}}</td>
                         <td>{{$data->judul_surat}}</td>
 					       	<td>
-                       {{Form::model($data,['route'=>['dashboard.suratmasuk.destroy',$data],'method'=>'delete','class'=>'form-inline','onsubmit'=>'return confirm("are you sure?")'])}}
+                       {{Form::model($data,['route'=>['dashboard.suratkeluar.destroy',$data],'method'=>'delete','class'=>'form-inline','onsubmit'=>'return confirm("are you sure?")'])}}
                           {{Form::submit('Delete',['class'=>'btn btn-sm btn-danger'])}}
-                           <a href="{{url('/dashboard/suratmasuk/')}}/{{$data->id}}/edit" class="btn btn-sm btn-info">Edit</a>
-                               <a href="{{url('/dashboard/suratmasuk/')}}/{{$data->id}}/detail" class="btn btn-sm btn-warning">Detail</a>
+                           <a href="{{url('/dashboard/suratkeluar/')}}/{{$data->id}}/edit" class="btn btn-sm btn-info">Edit</a>
+                               <a href="{{url('/dashboard/suratkeluar/')}}/{{$data->id}}/detail" class="btn btn-sm btn-warning">Detail</a>
                                       {{Form::close()}}
                                 
                       </tr>

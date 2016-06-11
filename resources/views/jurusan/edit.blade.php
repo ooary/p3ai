@@ -1,7 +1,7 @@
 @extends('layoutDashboard')
 @section('title','Jurusan Panel')
 
-@section('page-header','Add Jurusan')
+@section('page-header','Edit Jurusan '. $jurusan -> jurusan)
 @section('content')
 
 <div class="row">

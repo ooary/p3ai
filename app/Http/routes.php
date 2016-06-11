@@ -63,6 +63,14 @@ Route::get('/dashboard/workshop/sk/{id}/delete','FileController@deleteSk');
 Route::get('/dashboard/workshop/sk/{id}/download','FileController@downloadSk');
 //surat masuk
 Route::resource('/dashboard/suratmasuk','SuratMasukController');
-
-//test report
+//surat Keluar
+Route::resource('/dashboard/suratkeluar','SuratKeluarController');
+//Dosen report
 Route::get('/dashboard/dosen/report/{id}','DosenController@reportDosen');
+//Adm Report
+Route::get('/dashboard/adm/report/{id}','AdministrasiController@reportAdm');
+//serdos Report
+Route::get('/dashboard/serdos/report/{id}','SerdosController@reportAll');
+Route::get('/dashboard/serdos/reportlulus/{id}','SerdosController@reportLulus');
+Route::get('/dashboard/serdos/reporttdk/{id}','SerdosController@reportTdk');
+Route::get('/dashboard/serdos/reportblm/{id}','SerdosController@reportBlm');

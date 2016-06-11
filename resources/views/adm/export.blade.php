@@ -26,7 +26,7 @@
 	}
 </style>
 <body>
-	<h3>report data dosen</h3>
+	<h3>report data Administrasi Jurusan</h3>
 
 <table class="tableizer-table" width="100%">
 

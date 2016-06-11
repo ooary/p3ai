@@ -12,6 +12,7 @@
                     <thead>
                       <tr>
                         <td>No</td>
+                        <td>Keterangan</td>
                         <td>File</td>
                         <td>Tanggal Upload</td>
                         <td>Downloaded</td>
@@ -24,6 +25,7 @@
                       @foreach($dataFile as $data)
                       <tr>
                         <td>{{$no++}}</td>
+                        <td>{{$data->ket}}</td>
                         <td>{{$data->nama_file}}</td>
                         <td>{{date('d-m-Y',strtotime($data->tgl_upload))}}</td>
                         <td>{{$data->downloaded}}</td>

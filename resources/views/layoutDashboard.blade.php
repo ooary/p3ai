@@ -81,18 +81,19 @@
         <div class="col-sm-3 col-md-2 sidebar">
         
           <ul class="nav nav-sidebar">
-            <li ><a href="{{url('dashboard')}}">Overview <span class="sr-only">(current)</span></a></li>
-            <li ><a href="{{url('dashboard/news')}}">News Update</a></li>
-            <li ><a href="{{url('dashboard/gallery')}}">Gallery</a></li>
-            <li ><a href="{{url('dashboard/workshop')}}">Workshop</a></li>
-            <li ><a href="{{url('dashboard/download')}}">Data Download</a></li>
-             <li><a href="{{url('dashboard/dosen')}}">Data Dosen</a></li>
-            <li><a href="{{url('dashboard/serdos')}}">Data Serdos</a></li>
-            <li><a href="{{url('dashboard/adm')}}">Data Administrasi Jurusan</a></li>
-            <li><a href="{{url('dashboard/suratmasuk')}}">Surat Masuk</a></li>
-            <li><a href="{{url('dashboard/jurusan')}}">Jurusan</a></li>
-            <li><a href="{{url('dashboard/pangkat')}}">Pangkat</a></li>
-            <li><a href="{{url('dashboard/golongan')}}">Golongan</a></li>
+            <li ><a href="{{url('dashboard')}}"><i class="fa fa-dashboard fa-2x"></i> Overview </a> </li>
+            <li ><a href="{{url('dashboard/news')}}"><i class="fa fa-newspaper-o fa-2x"></i> News Update </a></li>
+            <li ><a href="{{url('dashboard/gallery')}}"><i class="fa fa-image fa-2x"></i> Gallery</i></a></li>
+            <li ><a href="{{url('dashboard/workshop')}}"><i class="fa fa-comments fa-2x"></i> Workshop</a></li>
+            <li ><a href="{{url('dashboard/download')}}"><i class="fa fa-download fa-2x"></i> Data Download</a></li>
+             <li><a href="{{url('dashboard/dosen')}}"><i class="fa fa-database fa-2x"></i> Data Dosen</a></li>
+            <li><a href="{{url('dashboard/serdos')}}"><i class="fa fa-archive fa-2x"></i> Data Serdos</a></li>
+            <li><a href="{{url('dashboard/adm')}}"><i class="fa fa-archive fa-2x"></i> Data Administrasi Jurusan</a></li>
+            <li><a href="{{url('dashboard/suratmasuk')}}"><i class="fa fa-envelope fa-2x"></i> Surat Masuk</a></li>
+              <li><a href="{{url('dashboard/suratkeluar')}}"><i class="fa fa-envelope fa-2x"></i> Surat Keluar</a></li>
+            <li><a href="{{url('dashboard/jurusan')}}"><i class="fa fa-database fa-2x"></i> Jurusan</a></li>
+            <li><a href="{{url('dashboard/pangkat')}}"><i class="fa fa-database fa-2x"></i> Pangkat</a></li>
+            <li><a href="{{url('dashboard/golongan')}}"><i class="fa fa-database fa-2x"></i> Golongan</a></li>
              </ul>
          
        
@@ -100,12 +101,12 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header"> @yield('page-header')</h1>
           @if (session()->has('flash_notification.message'))
-            <div class="container">
+           
             <div class="alert alert-{{ session()->get('flash_notification.level')}}">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             {{ session()->get('flash_notification.message') }}
             </div>
-            </div>
+          
             @endif
       
             @yield('content')

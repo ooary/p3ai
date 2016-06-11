@@ -1,7 +1,7 @@
 @extends('layoutDashboard')
 @section('title','Dosen Panel')
 
-@section('page-header','Edit Data Dosen')
+@section('page-header','Edit Data Sertifikasi Dosen '.$dataDosen->nama)
 @section('content')
 
 <div class="row">

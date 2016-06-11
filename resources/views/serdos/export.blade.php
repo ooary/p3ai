@@ -26,7 +26,7 @@
 	}
 </style>
 <body>
-	<h3>report data dosen</h3>
+	<h3>REPORT DATA SERTIFIKASI DOSEN</h3>
 
 <table class="tableizer-table" width="100%">
 
@@ -34,12 +34,23 @@
 		<th>NIP</th>
 		<th>NAMA</th>
 		<th>JURUSAN</th>
+		<th>STATUS</th>
+
 	</tr>
 		@foreach($dataDosen as $data)
 		<tr>
 			<td>{{$data->nip}}</td>
 			<td>{{$data->nama}}</td>
 			<td>{{$data->showJurusan->jurusan}}</td>
+			<td>
+				@if($data->status == '' or $data->status == 3)
+				BELUM SERDOS
+				@elseif($data->status==1)
+				LULUS
+				@else
+				TIDAK LULUS	
+				@endif
+		    </td>
 		</tr>
 		@endforeach
 </table>

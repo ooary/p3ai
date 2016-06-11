@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Serdos as Serdos;
 use App\Jurusan as Jurusan;
 use App\Dosen as Dosen;
-
+use PDF;
 class SerdosController extends Controller
 {
     /**
@@ -67,7 +67,7 @@ class SerdosController extends Controller
         $ketLulus=[]; 
         $ketBelum=[];   
         $ketTidak=[];                  
-
+        //di jadikan array utk di encode jadi json
         foreach($dataDosen['lulus'] as $datLulus){
             array_push($ketLulus,count($datLulus));
         }
@@ -122,6 +122,28 @@ class SerdosController extends Controller
         $dosen->update($data);
        	\Flash::message('Ganti Status Berhasil');
        	return Redirect('dashboard/serdos/'.$request->get('jurusan_id'));
+    }
+    public function reportAll($id){
+        $dataDosen = Dosen::where('jurusan_id',$id)->get();
+        $pdf = PDF::loadView('serdos.export',compact('dataDosen'));
+
+        return $pdf->setPaper('a4')->download(date('d-m-Y').'_'.str_random(5).'.pdf');
+
+    }
+    public function reportLulus($id){
+        $dataDosen = Dosen::where('jurusan_id',$id)->where('status',1)->get();
+        $pdf = PDF::loadView('serdos.export',compact('dataDosen'));
+        return $pdf -> setPaper('a4')->download(date('d-m-Y').'_'.'serdoslulus.pdf');
+    }
+    public function reportTdk($id){
+           $dataDosen = Dosen::where('jurusan_id',$id)->where('status',2)->get();
+        $pdf = PDF::loadView('serdos.export',compact('dataDosen'));
+        return $pdf -> setPaper('a4')->download(date('d-m-Y').'_'.'serdostidak.pdf');
+    }
+    public function reportBlm($id){
+           $dataDosen = Dosen::where('jurusan_id',$id)->where('status',3)->orWhere('status','')->get();
+        $pdf = PDF::loadView('serdos.export',compact('dataDosen'));
+        return $pdf -> setPaper('a4')->download(date('d-m-Y').'_'.'serdosbelum.pdf');
     }
 
     /**

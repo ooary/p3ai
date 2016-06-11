@@ -23,8 +23,8 @@
                         <td>{{$data->judul}}</td>
                        <td>
                                           {{Form::model($data,['route'=>['dashboard.news.destroy',$data],'method'=>'delete','class'=>'form-inline','onsubmit'=>'return confirm("are you sure?")'])}}
-                                              <a href="{{url('/dashboard/news/')}}/{{$data->id}}/edit" class="btn btn-sm btn-info">Edit</a>
-                                                <a href="{{url('/dashboard/news/')}}/{{$data->id}}" class="btn btn-sm btn-warning">Show</a>
+                                              <a href="{{url('/dashboard/news/')}}/{{$data->id}}/edit" class="btn btn-sm btn-info"><span class="fa fa-edit"></span></a>
+                                                <a href="{{url('/dashboard/news/')}}/{{$data->id}}" class="btn btn-sm btn-warning"><span class="fa fa-eye"></span></a>
                                              {{Form::submit('Delete',['class'=>'btn btn-sm btn-danger'])}}
                                              {{Form::close()}}
                                              </td>

@@ -40,7 +40,7 @@ class PangkatController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,['pangkat'=>'required',
+        $this->validate($request,['pangkat'=>'required|unique:pangkat',
                                   'golongan_list'=>'required']);
         $data = $request->only('pangkat');
         $pangkat = Pangkat::create($data);
@@ -87,7 +87,7 @@ class PangkatController extends Controller
     {
         //
          $this->validate($request,['pangkat'=>'required',
-                                  'golongan_list'=>'required']);
+                                   'golongan_list'=>'required']);
         $pangkat = Pangkat::findOrfail($id);
         $data = $request->only('pangkat');
         $pangkat->update($data);

@@ -28,7 +28,7 @@
                             </div>
                         </div>  
                         </div>
-                                <div class="form-group{{ $errors->has('tujuan') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('tujuan') ? ' has-error' : '' }}">
                         <div class="row">
                             <label class="col-md-4 control-label">Tujuan</label>
 
@@ -59,24 +59,24 @@
                         </div>  
                         </div>
                  
-                        <div class="form-group{{ $errors->has('file_surat_masuk') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('file_surat_keluar') ? ' has-error' : '' }}">
                         <div class="row">
                             <label class="col-md-4 control-label">File </label>
 
                             <div class="col-md-6">
-                               {{Form::file('file_surat_masuk')}}
+                               {{Form::file('file_surat_keluar')}}
 
-                                @if ($errors->has('file_surat_masuk'))
+                                @if ($errors->has('file_surat_keluar'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('file_surat_masuk') }}</strong>
+                                        <strong>{{ $errors->first('file_surat_keluar') }}</strong>
                                     </span>
                                 @endif
 
                             </div>
-                            @if (isset($model) && $model->file_surat_masuk !== '')
+                            @if (isset($model) && $model->file_surat_keluar !== '')
                                 <div class="row">
                                     <div class="col-md-6">
-                                         <p>Surat Sebelumnya:<h4 style="color:red">{{$model -> file_surat_masuk}}</h4></p>
+                                         <p>Surat Sebelumnya:<h4 style="color:red">{{$model -> file_surat_keluar}}</h4></p>
                                             
                                     </div>
                                 </div>
@@ -121,5 +121,3 @@
 
                    
                    
-
-                    

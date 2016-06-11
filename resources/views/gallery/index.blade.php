@@ -36,8 +36,8 @@
           							<td>{{$data->nama_gallery}}</td>
                         <td>{{date('d-m-Y',strtotime($data->tgl_upload))}}</td>
           							<td>
-                           <a href="{{url('/dashboard/gallery/')}}/{{$data->id}}/edit" class="btn btn-warning btn-sm">Upload</a>
-                            <a href="{{url('/dashboard/gallery/destroy')}}/{{$data->id}}" class="btn btn-danger btn-sm">Delete</a>
+                           <a href="{{url('/dashboard/gallery/')}}/{{$data->id}}/edit" class="btn btn-warning btn-sm"><span class="fa fa-upload"></span></a>
+                            <a href="{{url('/dashboard/gallery/destroy')}}/{{$data->id}}" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></a>
                                              </td>
           						</tr>
                                         @endforeach

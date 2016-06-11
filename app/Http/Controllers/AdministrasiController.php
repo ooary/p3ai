@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Jurusan as Jurusan ;
 use App\Adm as Adm;
+use App\GolPang as GolPang;
 class AdministrasiController extends Controller
 {
     /**
@@ -77,7 +78,8 @@ class AdministrasiController extends Controller
       public function detailAdm($nip){
 
         $dataDosen= Adm::where('nip',$nip)->first();
-       return View('adm.detail',compact('dataDosen'));
+        $pangkat = GolPang::all();
+       return View('adm.detail',compact('dataDosen','pangkat'));
     }
 
     /**
@@ -125,6 +127,7 @@ class AdministrasiController extends Controller
 
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -141,6 +144,16 @@ class AdministrasiController extends Controller
         \Flash::message('delete Success');
 
         return Redirect()->back();
+    }
+     public function reportAdm($id){
+
+        //https://github.com/barryvdh/laravel-dompdf
+
+        $dataDosen = Adm::where('jurusan_id',$id)->get();
+        $pdf = PDF::loadView('adm.export',compact('dataDosen'));
+
+        return $pdf->setPaper('a4')->download(date('d-m-Y').'_'.str_random(5).'.pdf');
+
     }
 
 }

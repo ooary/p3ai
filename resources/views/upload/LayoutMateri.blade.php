@@ -1,5 +1,5 @@
 @extends('layoutDashboard')
-@section('title','Data Gallery Panel')
+@section('title','Data Surat Keterangan Panel')
 
 @section('page-header','Upload Materi Workshop '.$workshop->tema)
 @section('content')

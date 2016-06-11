@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Jurusan as Jurusan;
 use App\Dosen as Dosen;
+use App\GolPang as GolPang;
 use PDF;
 
 class DosenController extends Controller
@@ -78,6 +79,7 @@ class DosenController extends Controller
         //
           $dataDosen = array('dosen'=>Dosen::where('jurusan_id',$id)->get(),
                              'jurusan'=>Jurusan::findOrfail($id) );
+
         return View('dosen.view',compact('dataDosen'));
     }
 
@@ -91,7 +93,6 @@ class DosenController extends Controller
     {
         //
         $dataDosen = Dosen::findOrfail($id);
-
         return View('dosen.edit',compact('dataDosen'));
     }
 
@@ -146,16 +147,18 @@ class DosenController extends Controller
      public function detailDosen($nip){
 
         $dataDosen= Dosen::where('nip',$nip)->first();
-       return View('dosen.detail',compact('dataDosen'));
+        $pangkat = GolPang::all();
+
+       return View('dosen.detail',compact('dataDosen','pangkat'));
     }
     public function reportDosen($id){
 
         //https://github.com/barryvdh/laravel-dompdf
 
-        $dataDosen = Dosen::where('id',$id)->get();
+        $dataDosen = Dosen::where('jurusan_id',$id)->get();
         $pdf = PDF::loadView('dosen.export',compact('dataDosen'));
 
-        return $pdf->setPaper('a4')->download('report.pdf');
+        return $pdf->setPaper('a4')->download(date('d-m-Y').'_'.str_random(5).'.pdf');
 
     }
    

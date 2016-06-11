@@ -1,7 +1,7 @@
 @extends('layoutDashboard')
 @section('title','Workshop Panel')
 
-@section('page-header','Edit Workshop'. $workshop->tema)
+@section('page-header','Edit Workshop '. $workshop->tema)
 @section('content')
 
 <div class="row">

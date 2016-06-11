@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
-use App\SuratMasuk as SuratMasuk;
+use App\SuratKeluar as SuratKeluar ;
 use File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
-class SuratMasukController extends Controller
+class SuratKeluarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +18,8 @@ class SuratMasukController extends Controller
     public function index()
     {
         //
-        $suratmasuk = SuratMasuk::all();
-        return View('suratmasuk.index',compact('suratmasuk'));
+        $suratkeluar = SuratKeluar::all();
+        return View('suratkeluar.index',compact('suratkeluar'));
     }
 
     /**
@@ -32,7 +30,7 @@ class SuratMasukController extends Controller
     public function create()
     {
         //
-        return View('suratmasuk.create');
+        return View('suratkeluar.create');
     }
 
     /**
@@ -41,31 +39,35 @@ class SuratMasukController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+   public function store(Request $request)
     {
         //
-        $this -> validate($request,['no_surat'=>'required',
+       $this -> validate($request,['no_surat'=>'required',
                                     'judul_surat'=>'required',
                                     'tujuan'=>'required',
                                     'tgl_surat'=>'date|required',
                                     'file_surat_keluar'=>'mimes:pdf,docx,doc',
                                     'isi_surat'=>'required']);
         $data = $request->only('no_surat','judul_surat','isi_surat','tujuan');
-        if($request->hasFile('file_surat_masuk')){
-            $data['file_surat_masuk']=$this->uploadSurat($request->file('file_surat_masuk'));
+        if($request->hasFile('file_surat_keluar')){
+            $data['file_surat_keluar']=$this->uploadSurat($request->file('file_surat_keluar'));
         }
         $data['tgl_surat']= date('Y-m-d',strtotime($request->get('tgl_surat')));
-        SuratMasuk::create($data);
+        SuratKeluar::create($data);
         \Flash::message($request->nama_surat. ' Added Success');
-        return Redirect('dashboard/suratmasuk');
+        return Redirect('dashboard/suratkeluar');
     }
-    public function uploadSurat(UploadedFile $file_surat_masuk){
-        $fileName = $file_surat_masuk->getClientOriginalName();
-        $path = public_path().DIRECTORY_SEPARATOR.'file'.DIRECTORY_SEPARATOR.'surat_masuk';
-        $file_surat_masuk -> move($path,$fileName);
+    public function uploadSurat(UploadedFile $file_surat_keluar){
+        //http://askubuntu.com/questions/303593/how-can-i-chmod-777-all-subfolders-of-var-www/303597
+        $fileName = $file_surat_keluar->getClientOriginalName();
+        $path = public_path().DIRECTORY_SEPARATOR.'file'.DIRECTORY_SEPARATOR.'surat_keluar';
+        $file_surat_keluar -> move($path,$fileName);
         return $fileName;
 
     }
+
+
+
 
     /**
      * Display the specified resource.
@@ -73,24 +75,23 @@ class SuratMasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+   public function show($id)
     {
         //
-        $suratmasuk= SuratMasuk::findOrfail($id);
-        return View('suratmasuk.show',compact('suratmasuk'));
+        $suratkeluar= SuratKeluar::findOrfail($id);
+        return View('suratkeluar.show',compact('suratkeluar'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+ public function edit($id)
     {
         //
-        $suratmasuk = SuratMasuk::findOrfail($id);
-        return View('suratmasuk.edit',compact('suratmasuk'));
+        $suratkeluar = SuratKeluar::findOrfail($id);
+        return View('suratkeluar.edit',compact('suratkeluar'));
     }
 
     /**
@@ -111,16 +112,16 @@ class SuratMasukController extends Controller
                                     'file_surat_keluar'=>'mimes:pdf,docx,doc',
                                     'isi_surat'=>'required']);
         $data = $request->only('no_surat','judul_surat','isi_surat','tujuan');
-        $suratmasuk = SuratMasuk::findOrfail($id);
-        if($request->hasFile('file_surat_masuk')){
-            $data['file_surat_masuk']=$this->uploadSurat($request->file('file_surat_masuk'));
-            if($suratmasuk !== '') $this->deleteSurat($suratmasuk->file_surat_masuk);
+        $suratkeluar = SuratKeluar::findOrfail($id);
+        if($request->hasFile('file_surat_keluar')){
+            $data['file_surat_keluar']=$this->uploadSurat($request->file('file_surat_keluar'));
+            if($suratkeluar !== '') $this->deleteSurat($suratkeluar->file_surat_keluar);
             
         }
          $data['tgl_surat']= date('Y-m-d',strtotime($request->get('tgl_surat')));
-         $suratmasuk->update($data);
+         $suratkeluar->update($data);
          \Flash::message($request->get('judul_surat'). ' Update Success');
-         return Redirect('dashboard/suratmasuk');
+         return Redirect('dashboard/suratkeluar');
 
 
     }
@@ -134,15 +135,15 @@ class SuratMasukController extends Controller
     public function destroy($id)
     {
         //
-        $suratmasuk = SuratMasuk::findOrfail($id);
+        $suratkeluar = SuratKeluar::findOrfail($id);
 
-        if($suratmasuk !== '') $this->deleteSurat($suratmasuk->file_surat_masuk);
-        $suratmasuk ->delete();
+        if($suratkeluar !== '') $this->deleteSurat($suratkeluar->file_surat_keluar);
+        $suratkeluar ->delete();
         \Flash::message('Delete Success');
-        return Redirect('dashboard/suratmasuk');
+        return Redirect('dashboard/suratkeluar');
     }
     public function deleteSurat($fileName){
-        $path = public_path().DIRECTORY_SEPARATOR.'file'.DIRECTORY_SEPARATOR.'surat_masuk'.DIRECTORY_SEPARATOR.$fileName;
+        $path = public_path().DIRECTORY_SEPARATOR.'file'.DIRECTORY_SEPARATOR.'surat_keluar'.DIRECTORY_SEPARATOR.$fileName;
         return File::delete($path);
     }
 }
