@@ -28,7 +28,8 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/dashboard';
+
 
     /**
      * Create a new authentication controller instance.
@@ -55,6 +56,7 @@ class AuthController extends Controller
         ]);
     }
 
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -68,5 +70,12 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    //http://slick.pl/kb/laravel/overriding-login-and-registration-functionality-in-laravel-5/
+    public function showRegistrationForm(){
+        return Redirect('/');
+    }
+    public function register(){
+        return Redirect('/');
     }
 }
