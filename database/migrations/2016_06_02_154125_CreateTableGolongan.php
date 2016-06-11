@@ -17,6 +17,7 @@ class CreateTableGolongan extends Migration
 
             $table -> increments('id');
             $table -> string('golongan',10);
+            
         });
         Schema::create('golongan_pangkat',function(Blueprint $table){
             $table -> increments('id');

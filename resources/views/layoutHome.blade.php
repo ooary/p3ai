@@ -45,7 +45,7 @@
            <ul class="nav navbar-nav pull-right">
                 <li ><a href="{{url('/')}}">Home</a></li>
                 <li><a href="{{url('/profile')}}">Profile</a></li>
-                <li><a href="#about">Download</a></li>
+                <li><a href="{{url('/download')}}">Download</a></li>
 
                 <li><a href="{{url('/gallery')}}">Gallery</a></li>
                 <li><a href="{{url('/contact')}}">Contact</a></li>

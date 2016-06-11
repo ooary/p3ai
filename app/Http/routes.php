@@ -20,6 +20,9 @@ Route::get('/gallery/{id}','HomePageController@showGallery');
 //profile
 Route::get('/profile','HomePageController@profile');
 Route::get('/contact','HomePageController@contact');
+//Download Area 
+Route::get('/download','HomePageController@downloadArea');
+Route::get('/download/{nama}/get','HomePageController@downloadFile');
 Route::get('/dashboard',function(){
 	return View('dashboard.overview');
 });

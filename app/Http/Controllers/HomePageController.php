@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\News as News;
 use App\Gallery as Gallery;
-
+use App\Download as Download;
 class HomePageController extends Controller
 {
     //
@@ -38,4 +38,26 @@ class HomePageController extends Controller
     	$latest = News::orderBy('tgl_posting','asc')->get();
 		return View('homepage.contact',compact('latest'));
     }
+    public function downloadArea(){
+        $dataFile = Download::all();
+        return View('homepage.download',compact('dataFile'));
+    }
+     public function downloadFile($nama){
+    //solving download http://stackoverflow.com/questions/20415444/download-files-in-laravel-using-responsedownload
+    $path = public_path(). DIRECTORY_SEPARATOR . 'file' . DIRECTORY_SEPARATOR . $nama ;
+    if (file_exists($path))
+    {
+        // Send Download
+        Download::where('nama_file','=',$nama)->increment('downloaded');
+        return Response()->download($path, $nama, [
+            'Content-Length: '. filesize($path)
+        ]);
+    }
+    else
+    {
+        // Error
+        exit('Requested file does not exist on our server!');
+    }
+    }
+
 }
