@@ -81,8 +81,8 @@ Route::get('/dashboard',function(){
 					});
 
 ///https://mattstauffer.co/blog/the-auth-scaffold-in-laravel-5-2
-$this->get('admin', 'Auth\AuthController@showLoginForm');
-$this->post('login', 'Auth\AuthController@login');
-$this->get('logout', 'Auth\AuthController@logout');
+Route::get('admin', 'Auth\AuthController@showLoginForm');
+Route::post('login', 'Auth\AuthController@login');
+Route::get('logout', 'Auth\AuthController@logout');
 
 
