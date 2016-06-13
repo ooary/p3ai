@@ -20,7 +20,8 @@ class Dosen extends Model
     					  'ket',
                           'thn_serdos',
                           'gelombang',
-                          'status'];
+                          'status',
+                          'photo'];
     protected $primaryKey='id';
     public $timestamps =false;
 

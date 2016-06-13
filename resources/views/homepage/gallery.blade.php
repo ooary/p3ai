@@ -1,12 +1,49 @@
  @extends('layoutHome')
  @section('content')
-  <div class="jumbotron">
-      <div class="container">
-        <h1>Gallery</h1>
-        <p>Gallery Kegiatan acara dan workshop </p>
-        <p></p>
+
+     
+<div id="carousel-example" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example" data-slide-to="1"></li>
+    <li data-target="#carousel-example" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <div style="background:url({{asset('images/ca.jpg')}}) center center; 
+          background-size:cover;" class="slider-size">
+      <div class="carousel-caption">
+       test
       </div>
     </div>
+  
+  </div>
+  <div class="item">
+      <div style="background:url({{asset('images/rt.jpg')}}) center center; 
+          background-size:cover;" class="slider-size">
+      <div class="carousel-caption">
+       test
+      </div>
+    </div>
+    </div>
+
+</div>
+
+  <!-- Controls -->
+<!-- Controls -->
+      <a class="left carousel-control" href="javascript:void(0)" 
+           data-slide="prev" data-target="#carousel-example">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="javascript:void(0)" 
+           data-slide="next" data-target="#carousel-example">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+</div>
+    
 
     <div class="container">
       <!-- Example row of columns -->

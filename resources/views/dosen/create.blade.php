@@ -7,8 +7,8 @@
 <div class="row">
 			<div class="col-md-12">
 
-				{{Form::open(['route'=>'dashboard.dosen.store'])}}
-						@include('dosen._form')
+				{{Form::open(['route'=>'dashboard.dosen.store','files'=>true])}}
+						@include('dosen._form',['jurusan'=>$jurusan])
 				{{Form::close()}}
 			</div>
 		</div>

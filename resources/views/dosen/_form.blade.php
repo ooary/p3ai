@@ -65,6 +65,7 @@
                             </div>
                         </div>  
                         </div>
+
                       <div class="form-group{{ $errors->has('no_hp') ? ' has-error' : '' }}">
                             <div class="row">
                                 <label class="col-md-4 control-label">no Hp</label>
@@ -82,23 +83,39 @@
                                 </div>
                             </div>  
                             </div>
-                           <div class="form-group{{ $errors->has('jurusan_id') ? ' has-error' : '' }}">
-                            <div class="row">
-                                <label class="col-md-4 control-label">jurusan</label>
+                            <!-- JURUSAN -->
+                            @if(isset($jurusan))
+                              {{Form::hidden('jurusan_id',$jurusan->id)}}
 
-                                <div class="col-md-4">
+                            @endif
+                            <!-- JURUSAN -->
 
-                                {{Form::select('jurusan_id',[''=>'']+App\Jurusan::lists('jurusan','id')->all(),null,['class'=>'form-control'])}}
-                                   
-                                   
-                                    @if ($errors->has('jurusan_id'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('jurusan_id') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>  
+                        <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
+                        <div class="row">
+                            <label class="col-md-4 control-label">Photo</label>
+
+                            <div class="col-md-6">
+                               {{Form::file('photo')}}
+
+                                @if ($errors->has('photo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('photo') }}</strong>
+                                    </span>
+                                @endif
+
                             </div>
+                            @if (isset($model) && $model->photo !== '')
+                                <div class="row">
+                                    <div class="col-md-6">
+                                         <p>Gambar Sebelumnya:</p>
+                                            <div class="thumbnail">
+                                              <img src="{{ url('/foto/' . $model->photo) }}" class="img-rounded">
+                                            </div>
+                                    </div>
+                                </div>
+                             @endif
+                        </div>  
+                    </div>
                              <div class="form-group{{ $errors->has('golongan_id') ? ' has-error' : '' }}">
                             <div class="row">
                                 <label class="col-md-4 control-label">Golongan</label>

@@ -7,7 +7,7 @@
 	<h3>Data Administrasi Jurusan {{$dataDosen['jurusan']->jurusan}}</h3>
 
 
-	<a href="{{url('/dashboard/adm/create')}}" class="btn btn-primary">Add Data</a>
+	<a href="{{url('/dashboard/adm/create')}}/{{$dataDosen['jurusan']->id}}" class="btn btn-primary">Add Data</a>
   <a href="{{url('/dashboard/adm/report')}}/{{$dataDosen['jurusan']->id}}" class="btn btn-success">Report</a>
 			<hr>
   <div class="table-responsive">

@@ -48,6 +48,7 @@ class NewsController extends Controller
                                   'isi'=>'required|min:200']);
 
         $data = $request->only('judul','isi');
+        dd($request->file('img'));
         if($request->hasFile('img'))
             :
            $data['img'] = $this->saveImg($request->file('img'));

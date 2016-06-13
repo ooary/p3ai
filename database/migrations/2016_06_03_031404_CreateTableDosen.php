@@ -24,6 +24,7 @@ class CreateTableDosen extends Migration
             $table -> string('no_hp',15);
             $table -> enum('pendidikan',['sma','d3','s1','s2','s3']);
             $table -> text('ket');
+            $table -> string('photo',60);
             $table -> string('thn_serdos');
             $table -> integer('gelombang');
             $table -> string('status',3);

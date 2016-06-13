@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Jurusan as Jurusan ;
 use App\Adm as Adm;
 use App\GolPang as GolPang;
+use File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 class AdministrasiController extends Controller
 {
     /**
@@ -30,7 +32,11 @@ class AdministrasiController extends Controller
     public function create()
     {
         //
-        return View('adm.create');
+       
+    }
+    public function createAdm($jurusan){
+         $jurusan = Jurusan::findOrfail($jurusan);
+         return View('adm.create',compact('jurusan'));
     }
 
     /**
@@ -53,12 +59,24 @@ class AdministrasiController extends Controller
                                   'posisi'=>'required'
 								 ]);
         $data = $request->only('nip','nama','agama','no_hp','jurusan_id','golongan_id','pendidikan','posisi');
+        if($request->hasFile('photo'))
+            :
+           $data['photo'] = $this->saveImg($request->file('photo'));
+        endif;
         $data['tgl_lahir'] = date('Y-m-d',strtotime($request->get('tgl_lahir')));
         $save = Adm::create($data);
 
         \Flash::message($request->get('nama'). " Added");
 
         return Redirect('dashboard/adm/'.$data['jurusan_id']);
+
+    }
+       public function saveImg(UploadedFile $img){
+
+        $fileName = str_random(40). '.' . $img -> guessClientExtension();
+        $path     = public_path() . DIRECTORY_SEPARATOR . 'foto';
+        $img -> move($path,$fileName);
+        return $fileName;
 
     }
 
@@ -111,19 +129,25 @@ class AdministrasiController extends Controller
                                   'agama'=>'required',
                                   'tgl_lahir'=>'required|date',
                                   'no_hp'=>'required|numeric|digits_between:10,12',
-                                  'jurusan_id'=>'required',
+                         
                                   'golongan_id'=>'required',
                                   'pendidikan'=>'required',
                                   'posisi'=>'required'
 								 ]);
          $dosen = Adm::findOrfail($id);
-         $data = $request->only('nip','nama','agama','no_hp','jurusan_id','golongan_id','pendidikan','posisi');
+         $data = $request->only('nip','nama','agama','no_hp','golongan_id','pendidikan','posisi');
          $data['tgl_lahir'] = date('Y-m-d',strtotime($request->get('tgl_lahir')));
          $dosen -> update($data);
 
          \Flash::message($request->get('nama'). " Update");
 
-         return Redirect('dashboard/adm/'.$data['jurusan_id']);
+         return Redirect('dashboard/adm/'.$dosen->jurusan_id);
+
+    }
+     public function deleteImg($fileName){
+
+        $path = public_path() . DIRECTORY_SEPARATOR .'foto' . DIRECTORY_SEPARATOR . $fileName;
+        return File::delete($path);
 
     }
 
@@ -138,6 +162,7 @@ class AdministrasiController extends Controller
     {
         //
          $datDosen = Adm::find($id);
+            if($datDosen->photo !=='') $this->deleteImg($datDosen->photo);
 
         $datDosen->delete();
 

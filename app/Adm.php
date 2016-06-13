@@ -17,7 +17,8 @@ class Adm extends Model
     					  'agama',
     					  'no_hp',
     					  'pendidikan',
-    					  'posisi',];
+    					  'posisi',
+                'photo'];
     protected $primaryKey='id';
     public $timestamps =false;
     public function showJurusan(){

@@ -47,7 +47,7 @@ $(document).ready(function(){
     }
     //upload Materi
      Dropzone.options.myDropzoneMateri = {
-    										acceptedFiles:'application/pdf,.psd,.doc,.docx',
+    										//acceptedFiles:'application/pdf,.psd,.doc,.docx',
     										 autoProcessQueue: true,
     										success:function(file,response){
     											if(file.status=='success'){
@@ -61,7 +61,7 @@ $(document).ready(function(){
     										}
     									}
     //upload Sk
-    Dropzone.options.myDropzoneSk = {	acceptedFiles:'application/pdf,.psd,.doc,.docx',
+    Dropzone.options.myDropzoneSk = {	//acceptedFiles:'application/pdf,.psd,.doc,.docx',
     										 autoProcessQueue: true,
     										success:function(file,response){
     											if(file.status=='success'){

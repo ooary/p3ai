@@ -22,6 +22,7 @@ class CreateTableAdm extends Migration
              $table -> date('tgl_lahir');
              $table -> string('agama',15);
              $table -> string('no_hp',15);
+             $table -> string('photo',60);
              $table -> enum('pendidikan',['sma','d3','s1','s2','s3']);
              $table -> string('posisi',30);
              $table -> foreign('jurusan_id')->references('id')->on('jurusan');

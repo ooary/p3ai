@@ -32,6 +32,7 @@ Route::get('/dashboard',function(){
 						//dosen
 						Route::resource('/dashboard/dosen','DosenController');
 						Route::get('/dashboard/dosen/{nip}/detail','DosenController@detailDosen');
+						Route::get('/dashboard/dosen/create/{jurusan}','DosenController@createDosen');
 						//serdos
 						Route::resource('/dashboard/serdos','SerdosController');
 						//jurusan
@@ -46,6 +47,7 @@ Route::get('/dashboard',function(){
 						//adm
 						Route::resource('/dashboard/adm','AdministrasiController');
 						Route::get('/dashboard/adm/{nip}/detail','AdministrasiController@detailAdm');
+						Route::get('/dashboard/adm/create/{jurusan}','AdministrasiController@createAdm');
 						//route Gallery
 						Route::get('/dashboard/gallery','GalleryController@index');
 						Route::post('/dashboard/gallery/store','GalleryController@store');

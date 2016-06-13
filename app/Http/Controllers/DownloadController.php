@@ -44,7 +44,7 @@ class DownloadController extends Controller
     {
         //permission all folder
         //http://askubuntu.com/questions/303593/how-can-i-chmod-777-all-subfolders-of-var-www/303597
-        $this ->validate($request,['nama_file'=>'mimes:pdf,docx,doc|required',
+        $this ->validate($request,['nama_file'=>'required',
                                     'ket'=>'required']);
         $file = $request->file('nama_file');
         $ket = $request -> get('ket');
