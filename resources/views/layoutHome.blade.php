@@ -43,12 +43,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
            <ul class="nav navbar-nav pull-right">
-                <li ><a href="{{url('/')}}">Home</a></li>
-                <li><a href="{{url('/profile')}}">Profile</a></li>
-                <li><a href="{{url('/download')}}">Download</a></li>
+                <li class=class=@if(Request::segment(1)=="") "active" @endif><a href="{{url('/')}}">Home</a></li>
+                <li class=@if(Request::segment(1)=="profile") "active"@endif><a href="{{url('/profile')}}">Profile</a></li>
+                <li class=@if(Request::segment(1)=="download") "active"@endif><a href="{{url('/download')}}">Download</a></li>
 
-                <li><a href="{{url('/gallery')}}">Gallery</a></li>
-                <li><a href="{{url('/contact')}}">Contact</a></li>
+                <li class=@if(Request::segment(1)=="gallery") "active"@endif><a href="{{url('/gallery')}}">Gallery</a></li>
+                <li class=@if(Request::segment(1)=="contact") "active"@endif><a href="{{url('/contact')}}">Contact</a></li>
 
               
               </ul>
@@ -61,11 +61,14 @@
 
 
   <div class="container">
-      <hr>
+   
 
-  <footer>
-        <p>&copy; 2016 Company, Inc.</p>
-      </footer>
+   <footer class="blog-footer">
+      <p>Copyright {{date('Y')}}</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
 
   </div>
     

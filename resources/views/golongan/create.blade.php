@@ -1,7 +1,7 @@
 @extends('layoutDashboard')
 @section('title','Golongan Panel')
 
-@section('page-header','Add Golongan')
+@section('page-header','Tambah Golongan')
 @section('content')
 
 <div class="row">

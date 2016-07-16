@@ -1,7 +1,7 @@
 @extends('layoutDashboard')
 @section('title','surat masuk Panel')
 
-@section('page-header','Add Data surat masuk')
+@section('page-header','Tambah Data surat masuk')
 @section('content')
 
 <div class="row">

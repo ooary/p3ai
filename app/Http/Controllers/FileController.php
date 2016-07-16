@@ -78,7 +78,7 @@ class FileController extends Controller
     	$workshop = Workshop::findOrfail($id);
 
     	$saveFile = $workshop -> hasSk() ->create(['sk'=>$fileName,
-    	    										   'workshop_id'=>$id]);
+    	    									   'workshop_id'=>$id]);
 
     	return $saveFile;
     }

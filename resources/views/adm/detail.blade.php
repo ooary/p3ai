@@ -7,7 +7,18 @@
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">Detail Dosen</div>
+<div class="media">
+  <div class="media-left">
+   	@if($dataDosen->photo =='')
+		 <a href="{{asset('foto')}}/photo.png" data-lightbox="mygallery">
+		 <img src="{{asset('foto')}}/photo.png" alt="">
+		@else
+         <a href="{{asset('foto')}}/{{$dataDosen->photo}}" data-lightbox="mygallery">
+         <img src="{{asset('foto')}}/{{$dataDosen->photo}}" alt="">
+	@endif
 
+  </div>
+  <div class="media-body">
   <!-- Table -->
   <table class="table">
 		<tr>
@@ -78,6 +89,8 @@
 		</tr>
 		
   </table>
+</div>
+</div>
 </div>
 
 @stop

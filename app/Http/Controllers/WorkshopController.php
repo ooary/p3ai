@@ -67,6 +67,8 @@ class WorkshopController extends Controller
     public function show($id)
     {
         //
+        $workshop = Workshop::findOrfail($id);
+        return View('workshop.show',compact('workshop'));
     }
 
     /**

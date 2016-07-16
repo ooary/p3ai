@@ -4,7 +4,7 @@
 @section('page-header','Jurusan Control')
 @section('content')
 
- <a href="{{url('/dashboard/jurusan/create')}}" class="btn btn-primary">Add Jurusan</a>
+ <a href="{{url('/dashboard/jurusan/create')}}" class="btn btn-primary">Tambah Jurusan</a>
 			<hr>
   <div class="table-responsive">
     

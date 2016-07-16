@@ -16,7 +16,7 @@ class CreateTableGolongan extends Migration
         Schema::create('golongan',function(Blueprint $table){
 
             $table -> increments('id');
-            $table -> string('golongan',10);
+            $table -> string('golongan',75);
             
         });
         Schema::create('golongan_pangkat',function(Blueprint $table){
@@ -36,7 +36,8 @@ class CreateTableGolongan extends Migration
     public function down()
     {
         //
-        Schema::drop('golongan');
         Schema::drop('golongan_pangkat');
+        
+        Schema::drop('golongan');
     }
 }

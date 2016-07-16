@@ -1,13 +1,9 @@
  @extends('layoutHome')
  @section('content')
-
-   <div class="jumbotron">
-      <div class="container">
-        <h1> P3AI!</h1>
-        <p>Pengembangan Pendidikan dan Pembelajaran Aktfitas instruksional</p>
-      </div>
-    </div>
-
+<br>
+<br>
+<br>
+<br>
     <div class="container">
         <div class="row">
         <div class="col-sm-8 blog-main">
@@ -16,14 +12,12 @@
             <p class="blog-post-meta">{{date('d-m-Y',strtotime($news->tgl_posting))}} by Admin</p>
             <hr>
                 @if($news -> img == '')
-            
                 @else
                   <div class="thumbnail">
-
-                <a href="{{asset('img')}}/{{$news->img}}" data-lightbox="mygallery">
+                   <a href="{{asset('img')}}/{{$news->img}}" data-lightbox="mygallery">
                       <img src="{{asset('img')}}/{{$news->img}}" alt="" class="img-rounded">
                   </a>
-                </div>
+                 </div>
                 @endif
 
                 {!!$news->isi!!}

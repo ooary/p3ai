@@ -7,25 +7,25 @@
   <ol class="carousel-indicators">
     <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-example" data-slide-to="1"></li>
-    <li data-target="#carousel-example" data-slide-to="2"></li>
+  
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <div style="background:url({{asset('images/ca.jpg')}}) center center; 
+      <div style="background:url({{asset('images/poltek2.jpg')}}) center center; 
           background-size:cover;" class="slider-size">
       <div class="carousel-caption">
-       test
+       
       </div>
     </div>
   
   </div>
   <div class="item">
-      <div style="background:url({{asset('images/rt.jpg')}}) center center; 
+      <div style="background:url({{asset('images/poltek1.jpg')}}) center center; 
           background-size:cover;" class="slider-size">
       <div class="carousel-caption">
-       test
+       
       </div>
     </div>
     </div>
@@ -44,7 +44,7 @@
       </a>
 </div>
     
-
+<br>
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">

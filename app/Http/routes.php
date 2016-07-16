@@ -26,7 +26,7 @@ Route::get('/download/{nama}/get','HomePageController@downloadFile');
 Route::get('/dashboard',function(){
 	return View('dashboard.overview');
 });
-		Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware'=>'auth'],function(){
 						//News
 						Route::resource('/dashboard/news','NewsController');
 						//dosen

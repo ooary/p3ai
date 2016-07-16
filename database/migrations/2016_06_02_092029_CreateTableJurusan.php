@@ -15,7 +15,7 @@ class CreateTableJurusan extends Migration
         //
         Schema::create('jurusan',function(Blueprint $table){
             $table->increments('id');
-            $table->string('jurusan',20);
+            $table->string('jurusan',50);
         });
     }
 

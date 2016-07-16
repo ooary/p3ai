@@ -12,6 +12,7 @@ class UsersSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('users')->truncate();
         App\User::create(['name'=>'admin',
         				  'email'=>'adminp3ai@polsri.ac.id',
         				  'password'=>bcrypt('rahasia')]);

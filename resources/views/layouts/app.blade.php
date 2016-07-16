@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Login Page</title>
 
      <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -16,6 +16,11 @@
     <style>
         body {
             font-family: 'Lato';
+        }
+        #logoLogin {
+                display: block;
+                margin:0 auto;
+                padding-bottom: 10px;
         }
         body {
               padding-top: 40px;

@@ -12,8 +12,10 @@ class HomePageController extends Controller
 {
     //
     public function index(){
-    	$news = News::all();
-    	return View('homepage.index',compact('news'));
+    	$news = News::orderBy('tgl_posting','desc')->paginate(5);
+        $latest = News::orderBy('tgl_posting','asc')->get();
+
+    	return View('homepage.index',compact('news','latest'));
     }
     public function news($slug){
     	$news = News::where('slug_judul',$slug)->first();

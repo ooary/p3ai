@@ -7,27 +7,41 @@
       </div>
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
+ <div class="container">
+
+
       <div class="row">
-        @foreach($news as $data)
-        <div class="col-md-4">
-           <div id="gallery-images">
 
+        <div class="col-sm-8 blog-main">
+          @foreach($news as $data)
+          <div class="blog-post">
+            <h2 class="blog-post-title">{{$data -> judul}}</h2>
+            <p class="blog-post-meta"> Posted by <a href="{{url('/')}}">Admin</a></p>
+             <div id="gallery-images">
+              @if($data->img =='')
+                       <img src="{{asset('images')}}/nopic.png" alt="">
+              @else
              <img src="{{asset('img')}}/{{$data->img}}" alt="">
+             @endif
           </div>
-          <h2>{{$data -> judul}}</h2>
-          {!!substr($data->isi,0,199)!!}        
-            <p>
-                
-              <a class="btn btn-primary" href="{{url('/news')}}/{{$data->slug_judul}}" role="button" id="button-index">View details &raquo;</a>
+             {!!substr($data->isi,0,199)!!}     
+             <br> 
+            <a class="btn btn-primary pull-right" href="{{url('/news')}}/{{$data->slug_judul}}" role="button" id="button-index">Baca &raquo;</a>
 
+          </div><!-- /.blog-post -->
+          @endforeach
+        
+          {{$news->appends(Request::query())->render()}}
 
-            </p>
-        </div>
-       @endforeach
-      </div>
-    </div>
+        </div><!-- /.blog-main -->
+
+          @include('homepage._sidebar',['latest'=>$latest])
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+  
 
 @stop
 

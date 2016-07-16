@@ -16,8 +16,8 @@ class CreateNewsTable extends Migration
         Schema::create('news',function(Blueprint $table){
 
             $table->increments('id');
-            $table->string('judul',25);
-            $table->string('slug_judul',50);
+            $table->string('judul',100);
+            $table->string('slug_judul',150);
             $table->string('img');
             $table->text('isi');
             $table->date('tgl_posting');

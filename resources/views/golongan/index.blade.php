@@ -4,7 +4,7 @@
 @section('page-header','Data Golongan Control')
 @section('content')
 
-          <a href="{{url('/dashboard/golongan/create')}}" class="btn btn-primary">Add Golongan</a>
+          <a href="{{url('/dashboard/golongan/create')}}" class="btn btn-primary">Tambah Golongan</a>
 			<hr>
       <div class="table-responsive">
         

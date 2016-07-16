@@ -55,7 +55,7 @@ class DosenController extends Controller
                                   'nama'=>'required',
                                   'agama'=>'required',
                                   'tgl_lahir'=>'required|date',
-                                  'photo'=>'required',
+                                
                                   'no_hp'=>'required|numeric|digits_between:10,12',
                                   'jurusan_id'=>'required',
                                   'golongan_id'=>'required',

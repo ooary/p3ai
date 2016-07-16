@@ -22,7 +22,7 @@
 			
 			{{Form::label('File','File')}}
             {{Form::file('nama_file')}}
-			<h5 style="color:red">*file harus berupa PDF / Doc</h5>
+
 			  @if ($errors->has('nama_file'))
 		        <span class="help-block">
 		                 <strong>{{ $errors->first('nama_file') }}</strong>

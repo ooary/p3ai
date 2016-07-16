@@ -1,158 +1,81 @@
 @extends('layoutDashboard')
 @section('title','Dashboard Template for Bootstrap')
 
-@section('page-header','Dashboard')
+@section('page-header','Dashboard P3AI')
 @section('content')
+    <div class="jumbotron">
+        <h2>Selamat Datang di Dashboard Admin P3AI!</h2>
+        <p>Pengembangan Pendidikan dan Pembelajaran Aktfitas instruksional</p>
+    </div>
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+             <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <span class="fa fa fa-check"></span> Latar Belakang
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+      Sejalan dengan perkembangan kapasitas kelembagaan Politeknik Negeri Sriwijaya (Polsri) dan dengan adanya penembahan beragam aktivitas yang bersifat penugasan oleh lembaga vertikal dalam hal ini Direktorat Pendidikan Tinggi Kementrian Pendidikan Nasional (Dikti Kemendiknas) seperti Kurikulum berbasis komputerisasi,sertifikasi Dosen, rencana strategis pengembagan Dosen dan lain sebagainya, menuntut Polsri untuk dapat menyeimbangkan tambahan tugas rutin yang telah diemban selama ini. Selain itu adanya program sertifikasi ISO yang dilaksanakan Polsri saat ini memerlukan suatu organisasi yang mengarah pada pedoman kerja yang jelas, tidak overlapping  dan akuntabel. Dengan demikian laju percepatan perbaikan kualitas pelayanan sebagai semangat dasar institusi Polsri terus dapat dijaga keberlanjutannya. Berpedoman  dengan masalah diatas,sudah saatnya Polsri membentuk suatu unit tersendiri yang dapat mewadahi semua aktivitas yang dijelaskan diatas dalam bentuk unit yang dinamakan Pusat Pengembangan Pendidikan dan Aktivitas Instruksional (P3AI).
+      </div>
+    </div>
+  </div>
+   <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+         <span class="fa fa-check"></span> Visi Misi dan Tujuan
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <h3>Visi</h3>
+                  <ul>
+                    <li>P3AI-Polsri menjadi Pusat Pengembangan Sumber Daya Pendidikan dan Pembelajaran, sains, Teknologi dan Seni yang berkualitas, dan menjadi rujukan bagi Politeknik Se-Indonesia.</li>
+                  </ul>
+                    <h3>Misi</h3>
+                  <ul>
+                    <li>Meningkatkan kualitas Sumber Daya Pendidikan berdasarkan prinsip-prinsip pedagogic dan penegakan etika akademik dengan melakukan pengembangan, pelatihan, lokakarya, workshop, monitoring dan evaluasi secara berkelanjutan, serta menyediakan software, hardware dan brainware yang berkualitas dalam mendukung proses pembelajaran bidang sains, teknologi dan seni.</li>
+                  </ul>
+                     <h3>Tujuan</h3>
+                  <ul>
+                    <li>Meningkatkan kualitas pembelajaran </li>
+                    <li>Meningkatkan kemampuan dosen dalam pembelajaran menurut prinsip-prinsip pedagogic dan etika akademik.</li>
+                    <li>Mengembangkan dan menyebarluaskan metode pembelajaran yang sesuai dengan perkembangan sains, teknologi dan seni.</li>
+                    <li>Mengembangkan dan melakukan evaluasi kurikulum, SAP dan materi ajar secara berkesinambungan.</li>
+                    <li>Menyediakan sumber daya (brainware, software, hardware) pembelajaran yang bermutu untuk meningkatkan kualitas layanan pada stake holder.</li>
+                  </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Colappse 2-->
+   <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         <span class="fa fa fa-check"></span> Organisasi P3AI POLSRI
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+       Oganisasi P3AI-Polsri dibentuk berdasarkan kedudukan dan tujuannya dimana secara structural berada langsung dibawah Direktur dan koordinasinya dengan Pembantu Direktur Bidang Akademik (PD I), P3AI-Polsri secara substansial juga mempunyai hubungan dengan Unit/Pusat Pelayanan lain, Mahasiswa , Dosen dan Jurusan/Prodi di lingkungan Politeknik Negeri Sriwijaya.
+        P3AI-POLSRI dipimpin oleh seorang Ketua Pusat yang dibantu olek Sekretaris Pusat. Sekretaris pusat memimpin sebuah secretariat yang menangani aspek administrasi,perangkat keras dan perangkat lunak. Secara operasional Ketua dibantu oleh tiga coordinator bidang yakni :
+        <ol>
+          <li>Koordinator bidang Penelitian dan Pengembangan Pembelajaran </li>
+          <li>Koordinator bidang Pendidikan dan Pelatihan</li>
+          <li>Koordinator bidang Media Pembelajaran dan Evaluasi Beban Kerja Dosen</li>
+        </ol>
+          Disamping itu dalam menyusun, mengembangkan, dan menjalankan program, P3AI didukung oleh kelompok sejawat (Peer Group) yang bersifar adhoc, beranggotakan dosen-dosen dari berbagai jurusan yang mempunyai minat dan kempuan khusus yang berkaitan dengan aspek pendidikan.
 
-   <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4> 
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
 
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+       
 @stop

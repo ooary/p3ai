@@ -46,8 +46,7 @@ class SuratKeluarController extends Controller
                                     'judul_surat'=>'required',
                                     'tujuan'=>'required',
                                     'tgl_surat'=>'date|required',
-                                    'file_surat_keluar'=>'mimes:pdf,docx,doc',
-                                    'isi_surat'=>'required']);
+                                    ]);
         $data = $request->only('no_surat','judul_surat','isi_surat','tujuan');
         if($request->hasFile('file_surat_keluar')){
             $data['file_surat_keluar']=$this->uploadSurat($request->file('file_surat_keluar'));
@@ -109,8 +108,7 @@ class SuratKeluarController extends Controller
                                     'judul_surat'=>'required',
                                     'tujuan'=>'required',
                                     'tgl_surat'=>'date|required',
-                                    'file_surat_keluar'=>'mimes:pdf,docx,doc',
-                                    'isi_surat'=>'required']);
+                                    ]);
         $data = $request->only('no_surat','judul_surat','isi_surat','tujuan');
         $suratkeluar = SuratKeluar::findOrfail($id);
         if($request->hasFile('file_surat_keluar')){

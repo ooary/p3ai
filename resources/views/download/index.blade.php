@@ -4,7 +4,7 @@
 @section('page-header','Download Control')
 @section('content')
 
- <a href="{{url('/dashboard/download/create')}}" class="btn btn-primary">Tambah File</a>
+ <a href="{{url('/dashboard/download/create')}}" class="btn btn-primary">Upload File</a>
 			<hr>
   <div class="table-responsive">
     

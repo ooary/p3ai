@@ -8,8 +8,20 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Detail Dosen</div>
 
-  <!-- Table -->
-  <table class="table">
+<div class="media">
+  <div class="media-left">
+		@if($dataDosen->photo =='')
+		 <a href="{{asset('foto')}}/photo.png" data-lightbox="mygallery">
+		 <img src="{{asset('foto')}}/photo.png" alt="">
+		@else
+         <a href="{{asset('foto')}}/{{$dataDosen->photo}}" data-lightbox="mygallery">
+         <img src="{{asset('foto')}}/{{$dataDosen->photo}}" alt="">
+	@endif
+
+   </a>
+  </div>
+  <div class="media-body">
+   <table class="table">
 		<tr>
 			<td>NIP</td>
 			<td>:</td>
@@ -28,7 +40,7 @@
 		<tr>
 			<td>Tanggal Lahir</td>
 			<td>:</td>
-			<td>{{date("d-m-Y",strtotime($dataDosen->agama))}}</td>
+			<td>{{date("d-m-Y",strtotime($dataDosen->tgl_lahir))}}</td>
 		</tr>
 		<tr>
 			<td>No Handphone</td>
@@ -79,6 +91,10 @@
 		</tr>
 		
   </table>
+  </div>
+</div>
+  <!-- Table -->
+ 
 </div>
 
 @stop

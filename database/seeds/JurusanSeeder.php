@@ -12,22 +12,32 @@ class JurusanSeeder extends Seeder
     public function run()
     {
         //
-        App\Jurusan::create(['jurusan'=>'Teknik Kimia']);
-        App\Jurusan::create(['jurusan'=>'Teknik Mesin']);
-        App\Jurusan::create(['jurusan'=>'Teknik Sipil']);
-        App\Jurusan::create(['jurusan'=>'Teknik Elektro']);
-        App\Jurusan::create(['jurusan'=>'Teknik Mesin']);
-        App\Jurusan::create(['jurusan'=>'Teknik Komputer']);
-        App\Jurusan::create(['jurusan'=>'Manajemen Informatika']);
-        App\Jurusan::create(['jurusan'=>'Akutansi']);
-        App\Jurusan::create(['jurusan'=>'Administrasi Bisnis']);
-        App\Jurusan::create(['jurusan'=>'Bahasa Inggris']);
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        DB::table('jurusan')->truncate();
 
+        $jurusan = [
+                    ['jurusan'=>'Teknik Kimia'],
+                    ['jurusan'=>'Teknik Energi'],
+                    ['jurusan'=>'Teknik Industri'],
+                    ['jurusan'=>'Teknik Mesin'],
+                    ['jurusan'=>'Teknik Sipil'],
+                    ['jurusan'=>'Perancangan Jalan dan Jembatan'],
+                    ['jurusan'=>'Teknik Elektronika'],
+                    ['jurusan'=>'Teknik Elektronika (D4)'],
+                    ['jurusan'=>'Teknik Telekomunikasi'],
+                    ['jurusan'=>'Teknik Telekomunikasi (D4)'],
+                    ['jurusan'=>'Teknik Listrik'],
+                    ['jurusan'=>'Teknik Komputer'],
+                    ['jurusan'=>'Manajemen Informatika'],
+                    ['jurusan'=>'Akutansi'],
+                    ['jurusan'=>'Akutansi Sektor Publik (D4)'],
+                    ['jurusan'=>'Manajemen Bisnis (D4)'],
+                    ['jurusan'=>'Usaha Perjalanan Wisata'],
+                    ['jurusan'=>'Administrasi Bisnis'],
+                    ['jurusan'=>'Bahasa Inggris']
 
-
-
-
-
+        ];
+        DB::table('jurusan')->insert($jurusan);
 
 
     }

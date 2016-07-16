@@ -1,15 +1,15 @@
 @extends('layoutDashboard')
-@section('title','Data Dosen Panel')
+@section('title','Data Serdos  Panel')
 
 @section('page-header','Data Serdos ' . $dataDosen['jurusan']->jurusan)
 @section('content')
-
+  
   <h4>Statistik Data Serdos {{$dataDosen['jurusan']->jurusan}}</h4>
-  <div width="50" height="50">
+<div class="fuckinChart">
     <canvas id="chartStatistik" ></canvas>
+  
+</div>
 
-
-  </div>
     <ul>
       <li >
       <h4>Jumlah Dosen Lulus  <span class="badge"> {{count($dataDosen['lulus'])}}</span></h4>
@@ -123,11 +123,11 @@
                                               type: 'bar',
                                               data: barData,
                                               responsive:true,
-                                              maintainAspectRatio: false,
+                                              maintainAspectRatio:false,
                                               scaleOverride:true,
                                               scaleSteps:9,
                                               scaleStartValue:0,
-                                              scaleStepWidth:100
+                                              scaleStepWidth:50
                                              
                                                                                                      
                                                  

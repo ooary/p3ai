@@ -16,9 +16,15 @@ class CreateGalleryTable extends Migration
         Schema::create('gallery',function(Blueprint $table){
 
                 $table -> increments('id');
-                $table -> string('nama_gallery',25);
+                $table -> string('nama_gallery',100);
                 $table -> date('tgl_upload');
 
+        });
+        Schema::create('images',function(Blueprint $table){
+                $table -> increments('id');
+                $table -> string('image');
+                $table -> integer('gallery_id')->unsigned();
+                $table -> foreign('gallery_id')->references('id')->on('gallery');
         });
     }
 
@@ -30,6 +36,8 @@ class CreateGalleryTable extends Migration
     public function down()
     {
         //
+        Schema::drop('images');
+        
         Schema::drop('gallery');
     }
 }

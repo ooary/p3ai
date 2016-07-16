@@ -16,7 +16,7 @@ class CreateTableDownload extends Migration
         Schema::create('download',function(Blueprint $table){
 
             $table -> increments('id');
-            $table -> string('nama_file',40);
+            $table -> string('nama_file',100);
             $table -> date('tgl_upload');
             $table -> integer('downloaded');
             $table -> string('ket',100);

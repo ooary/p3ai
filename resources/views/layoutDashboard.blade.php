@@ -86,19 +86,47 @@
         <div class="col-sm-3 col-md-2 sidebar">
         
           <ul class="nav nav-sidebar">
-            <li ><a href="{{url('dashboard')}}"><i class="fa fa-dashboard fa-2x"></i> Overview </a> </li>
-            <li ><a href="{{url('dashboard/news')}}"><i class="fa fa-newspaper-o fa-2x"></i> News Update </a></li>
-            <li ><a href="{{url('dashboard/gallery')}}"><i class="fa fa-image fa-2x"></i> Gallery</i></a></li>
-            <li ><a href="{{url('dashboard/workshop')}}"><i class="fa fa-comments fa-2x"></i> Workshop</a></li>
-            <li ><a href="{{url('dashboard/download')}}"><i class="fa fa-download fa-2x"></i> Data Download</a></li>
-             <li><a href="{{url('dashboard/dosen')}}"><i class="fa fa-database fa-2x"></i> Data Dosen</a></li>
-            <li><a href="{{url('dashboard/serdos')}}"><i class="fa fa-archive fa-2x"></i> Data Serdos</a></li>
-            <li><a href="{{url('dashboard/adm')}}"><i class="fa fa-archive fa-2x"></i> Data Administrasi Jurusan</a></li>
-            <li><a href="{{url('dashboard/suratmasuk')}}"><i class="fa fa-envelope fa-2x"></i> Surat Masuk</a></li>
-              <li><a href="{{url('dashboard/suratkeluar')}}"><i class="fa fa-envelope fa-2x"></i> Surat Keluar</a></li>
-            <li><a href="{{url('dashboard/jurusan')}}"><i class="fa fa-database fa-2x"></i> Jurusan</a></li>
-            <li><a href="{{url('dashboard/pangkat')}}"><i class="fa fa-database fa-2x"></i> Pangkat</a></li>
-            <li><a href="{{url('dashboard/golongan')}}"><i class="fa fa-database fa-2x"></i> Golongan</a></li>
+            <li 
+              @if(Request::segment(1)== 'dashboard' and Request::segment(2)=='')
+                class="active" 
+              @endif>
+              <a href="{{url('dashboard')}}"><i class="fa fa-dashboard fa-2x"></i> Dashboard </a> 
+            </li>
+            <li class="{{ Request::segment(2) == "news"? "active" : ""}}">
+              <a href="{{url('dashboard/news')}}"><i class="fa fa-newspaper-o fa-2x"></i> News Update </a>
+            </li>
+            <li class="{{ Request::segment(2) == "gallery"? "active" : ""}}">
+              <a href="{{url('dashboard/gallery')}}"><i class="fa fa-image fa-2x"></i> Gallery</i></a></li>
+            <li class="{{ Request::segment(2) == "workshop"? "active" : ""}}">
+                <a href="{{url('dashboard/workshop')}}"><i class="fa fa-comments fa-2x"></i> Workshop</a>
+            </li>
+            <li class="{{ Request::segment(2) == "download"? "active" : ""}}">
+              <a href="{{url('dashboard/download')}}"><i class="fa fa-download fa-2x"></i> Data Download</a>
+            </li>
+             <li class="{{ Request::segment(2) == "dosen"? "active" : ""}}">
+              <a href="{{url('dashboard/dosen')}}"><i class="fa fa-database fa-2x"></i> Data Dosen</a>
+            </li>
+            <li class="{{ Request::segment(2) == "serdos"? "active" : ""}}">
+              <a href="{{url('dashboard/serdos')}}"><i class="fa fa-archive fa-2x"></i> Data Serdos</a>
+            </li>
+            <li class="{{ Request::segment(2) == "adm"? "active" : ""}}">
+              <a href="{{url('dashboard/adm')}}"><i class="fa fa-archive fa-2x"></i> Data Administrasi Jurusan</a>
+            </li>
+            <li class="{{ Request::segment(2) == "suratmasuk"? "active" : ""}}">
+              <a href="{{url('dashboard/suratmasuk')}}"><i class="fa fa-envelope fa-2x"></i> Surat Masuk</a>
+            </li>
+            <li  class="{{ Request::segment(2) == "suratkeluar"? "active" : ""}}">
+                <a href="{{url('dashboard/suratkeluar')}}"><i class="fa fa-envelope fa-2x"></i> Surat Keluar</a>
+            </li>
+            <li  class="{{ Request::segment(2) == "jurusan"? "active" : ""}}">
+              <a href="{{url('dashboard/jurusan')}}"><i class="fa fa-database fa-2x"></i> Jurusan</a>
+            </li>
+            <li  class="{{ Request::segment(2) == "pangkat"? "active" : ""}}">
+              <a href="{{url('dashboard/pangkat')}}"><i class="fa fa-database fa-2x"></i> Pangkat</a>
+            </li>
+            <li  class="{{ Request::segment(2) == "golongan"? "active" : ""}}">
+              <a href="{{url('dashboard/golongan')}}"><i class="fa fa-database fa-2x"></i> Golongan</a>
+            </li>
              </ul>
          
        

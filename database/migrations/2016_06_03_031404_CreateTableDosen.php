@@ -16,7 +16,7 @@ class CreateTableDosen extends Migration
         Schema::create('dosen',function(Blueprint $table){
             $table -> increments('id');
             $table -> string('nip',100);
-            $table -> string('nama',40);
+            $table -> string('nama',100);
             $table -> integer('jurusan_id')->unsigned();
             $table -> integer('golongan_id')->unsigned();
             $table -> date('tgl_lahir');
@@ -24,7 +24,7 @@ class CreateTableDosen extends Migration
             $table -> string('no_hp',15);
             $table -> enum('pendidikan',['sma','d3','s1','s2','s3']);
             $table -> text('ket');
-            $table -> string('photo',60);
+            $table -> string('photo',100);
             $table -> string('thn_serdos');
             $table -> integer('gelombang');
             $table -> string('status',3);

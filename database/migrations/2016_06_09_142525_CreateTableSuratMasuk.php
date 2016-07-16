@@ -15,12 +15,12 @@ class CreateTableSuratMasuk extends Migration
         //
         Schema::create('surat_masuk',function(Blueprint $table){
                 $table -> increments('id');
-                $table -> string('no_surat',20);
-                $table -> string('judul_surat',40);
+                $table -> string('no_surat',50);
+                $table -> string('judul_surat',100);
                 $table -> date('tgl_surat');
-                $table -> string('tujuan',20);
+                $table -> string('tujuan',100);
                 $table -> text('isi_surat');
-                $table -> string('file_surat_masuk',50);
+                $table -> string('file_surat_masuk',100);
         });
     }
 

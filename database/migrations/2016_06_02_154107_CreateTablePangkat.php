@@ -15,7 +15,7 @@ class CreateTablePangkat extends Migration
         //
         Schema::create('pangkat',function(Blueprint $table){
             $table -> increments('id');
-            $table -> string('pangkat',30);
+            $table -> string('pangkat',75);
         });
     }
 

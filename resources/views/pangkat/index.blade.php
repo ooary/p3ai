@@ -4,7 +4,7 @@
 @section('page-header','Data Pangkat Control')
 @section('content')
 
-          <a href="{{url('/dashboard/pangkat/create')}}" class="btn btn-primary">Add Pangkat</a>
+          <a href="{{url('/dashboard/pangkat/create')}}" class="btn btn-primary">Tambah Pangkat</a>
 			<hr>
       <div class="table-responsive">
    			<table class="table table-stripped table-bordered" id="dataTables">
